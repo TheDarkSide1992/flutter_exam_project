@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'homepage.dart';
 import 'main.dart';
+import 'settigns_page.dart';
 
 
 class AppDrawer extends StatelessWidget {
@@ -33,7 +35,7 @@ class AppDrawer extends StatelessWidget {
           //Item paths
           ListTile(
               title: Text('Home'),
-              onTap: () => _onMenuTap(context, MyApp.new),
+              onTap: () => _onMenuTap(context, RoomOverviewApp.new),
               leading: Icon(Icons.home),
           ),
           ListTile(
@@ -43,7 +45,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
               title: Text('Settings'),
-              onTap: () => _onMenuTap(context, MyApp.new),
+              onTap: () => _onMenuTap(context, SettingPage.new),
               leading: Icon(Icons.settings),
           ),
         ],

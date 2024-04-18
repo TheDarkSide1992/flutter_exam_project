@@ -7,10 +7,24 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static final ValueNotifier<ThemeMode> themeNotifier =
+  ValueNotifier(ThemeMode.system);
+
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (context, themeMode, child) => MaterialApp(
+        title: 'Flutter Demo', //TODO Change / Remowe This
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        themeMode: themeMode,
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
