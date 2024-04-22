@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-import 'app_drawer.dart';
-import 'main.dart';
+import '../app_drawer.dart';
+import '../main.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});

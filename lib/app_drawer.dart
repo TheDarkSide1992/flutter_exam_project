@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home/homepage.dart';
 import 'main.dart';
-import 'settigns_page.dart';
+import 'settings/settigns_page.dart';
 
 
 class AppDrawer extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_exam_project/settigns_page.dart';
+import 'package:flutter_exam_project/settings/settigns_page.dart';
 
 import '../app_drawer.dart';
 
@@ -58,23 +58,23 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Sign In')),
-      drawer: const AppDrawer(),
       body: ListView(
         children: [
+          SizedBox(height: 95),
           TextFormField(
             controller: _emailController,
             decoration:
             const InputDecoration(labelText: 'Email'),
             keyboardType: TextInputType.emailAddress,
           ),
-          Spacer(),
+          SizedBox(height: 30),
           TextFormField(
             controller: _passwordController,
             decoration: const InputDecoration(
                 labelText: 'Password'),
             obscureText: true,
           ),
-          Spacer(),
+          SizedBox(height: 40),
           ElevatedButton(
             onPressed: _isLoading ? null : _signIn,
             child: const Text('Login'),
