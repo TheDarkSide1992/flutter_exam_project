@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
 import 'package:flutter_exam_project/log_in/log_in_page.dart';
 
 import 'app_drawer.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<ProfileCubit>(
+          create: (BuildContext context) => ProfileCubit()
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   static final ValueNotifier<ThemeMode> themeNotifier =
-  ValueNotifier(ThemeMode.system);
+      ValueNotifier(ThemeMode.system);
 
   const MyApp({super.key});
 
@@ -18,11 +29,9 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (context, themeMode, child) => MaterialApp(
-
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         themeMode: themeMode,
-
         home: LoginPage(),
       ),
     );

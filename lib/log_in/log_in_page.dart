@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
+import 'package:flutter_exam_project/cubit/account/profile_state.dart';
 import 'package:flutter_exam_project/settings/settigns_page.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
 
@@ -22,23 +26,19 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true;
     });
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SettingPage()),
-    );
-    /*
     //TODO add authentication
-    try {
-      await (
-        email: _emailController.text,
-        password: _passwordController.text,
+
+       context.read<ProfileCubit>().signIn(
+         _emailController.text,
+         _passwordController.text,
       );
-    } on AuthException catch (error) {
-      //TODO AuthUser message to USer
-    } catch (_) {
-      //TODO Display Rejct
-    }
-    */
+
+       Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SettingPage()),
+      );
+
+
 
     if (mounted) {
       setState(() {
@@ -58,28 +58,41 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Sign In')),
-      body: ListView(
-        children: [
-          SizedBox(height: 95),
-          TextFormField(
-            controller: _emailController,
-            decoration:
-            const InputDecoration(labelText: 'Email'),
-            keyboardType: TextInputType.emailAddress,
-          ),
-          SizedBox(height: 30),
-          TextFormField(
-            controller: _passwordController,
-            decoration: const InputDecoration(
-                labelText: 'Password'),
-            obscureText: true,
-          ),
-          SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: _isLoading ? null : _signIn,
-            child: const Text('Login'),
-          ),
-        ],
+      body: BlocConsumer<ProfileCubit, ProfileState>(
+        listener: (context, state) {
+          if (state is LoggedProfile) {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SettingPage()),
+            );
+          }
+          if (state is Autherror) {
+            context.showErrorSnackBar(message: "Wrong password");
+          }
+
+        },
+        builder:(context, state) => ListView(
+          children: [
+            SizedBox(height: 95),
+            TextFormField(
+              controller: _emailController,
+              decoration:
+              const InputDecoration(labelText: 'Email'),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            SizedBox(height: 30),
+            TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                  labelText: 'Password'),
+              obscureText: true,
+            ),
+            SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: _isLoading ? null : _signIn,
+              child: const Text('Login'),
+            ),
+          ],
+        ),
       ),
     );
   }
