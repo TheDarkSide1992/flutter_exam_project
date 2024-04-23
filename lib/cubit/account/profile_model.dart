@@ -1,3 +1,5 @@
+
+//TODO this clas is a temporary model, and should be removed at a later date.
 class Profile {
   Profile({
     required this.id,

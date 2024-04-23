@@ -8,8 +8,13 @@ import '../cubit/account/profile_cubit.dart';
 import '../cubit/account/profile_state.dart';
 import '../main.dart';
 
+
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
+
+  Future<void> _signOut(BuildContext context) async {
+    context.read<ProfileCubit>().signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +25,18 @@ class SettingPage extends StatelessWidget {
         title: Text('Settings'),
       ),
       drawer: const AppDrawer(),
+
       body: BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {
           if (state is LoggedOut) {
-
-            context.showSnackBar(message: "Signing out", backgroundColor: Colors.yellow);
+            context.showSnackBar(message: "you have been signed out", backgroundColor: Colors.amber);
 
             Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const MyApp()),
             );
           }
         },
-        builder: (context, state) => SettingsList(
+        builder:(context, state) =>  SettingsList(
           sections: [
             SettingsSection(
               title: Text('Background Collor'),
@@ -60,14 +65,14 @@ class SettingPage extends StatelessWidget {
               ],
             ),
             SettingsSection(
-              title: Text('Account'),
+              title: Text('Account', style:TextStyle(color: Colors.amber)),
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   onPressed: (value) {
-                    context.read<ProfileCubit>().signOut;
+                    _signOut(context);
                   },
-                  leading: Icon(Icons.logout),
-                  title: Text('LogOut'),
+                  leading: Icon(Icons.logout, color: Colors.amber,),
+                  title: Text('LogOut', style:TextStyle(color: Colors.amber)),
                 ),
               ],
             ),

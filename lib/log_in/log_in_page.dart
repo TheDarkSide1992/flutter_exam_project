@@ -9,9 +9,9 @@ import '../app_drawer.dart';
 
 class LoginPage extends StatefulWidget {
   static Route<void> route() {
-    return MaterialPageRoute(
-        builder: (context) => LoginPage());
+    return MaterialPageRoute(builder: (context) => LoginPage());
   }
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -26,25 +26,28 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true;
     });
 
-    //TODO add authentication
+    context.read<ProfileCubit>().signIn(
+          _emailController.text,
+          _passwordController.text,
+        );
 
-       context.read<ProfileCubit>().signIn(
-         _emailController.text,
-         _passwordController.text,
-      );
+    //TODO remowe this latter
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SettingPage()),
+    );
 
-       Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SettingPage()),
-      );
-
-
-
-    if (mounted) {
+/*    if (mounted) {
       setState(() {
         _isLoading = true;
       });
-    }
+    }*/
+
+    setState(() {
+      _isLoading = false;
+    });
+
+
   }
 
   @override
@@ -66,24 +69,21 @@ class _LoginPageState extends State<LoginPage> {
             );
           }
           if (state is Autherror) {
-            context.showErrorSnackBar(message: "Wrong password");
+            context.showErrorSnackBar(message: "Wrong username or password");
           }
-
         },
-        builder:(context, state) => ListView(
+        builder: (context, state) => ListView(
           children: [
             SizedBox(height: 95),
             TextFormField(
               controller: _emailController,
-              decoration:
-              const InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
               keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(height: 30),
             TextFormField(
               controller: _passwordController,
-              decoration: const InputDecoration(
-                  labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
             SizedBox(height: 40),
