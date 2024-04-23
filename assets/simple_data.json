@@ -1,0 +1,10 @@
+[{"roomID":1,"roomName":"bedroom","date":"12/01/2020","temp":34.4,"hum":25,"airquality":80},
+  {"roomID":2,"roomName":"kitchen","date":"27/10/2020","temp":17.66,"hum":68,"airquality":11},
+  {"roomID":3,"roomName":"dining room","date":"26/07/2023","temp":23.86,"hum":43,"airquality":29},
+  {"roomID":4,"roomName":"attic","date":"17/05/2021","temp":18.06,"hum":24,"airquality":95},
+  {"roomID":5,"roomName":"kitchen","date":"16/03/2023","temp":27.57,"hum":75,"airquality":52},
+  {"roomID":6,"roomName":"study","date":"09/03/2022","temp":32.3,"hum":42,"airquality":20},
+  {"roomID":7,"roomName":"garage","date":"25/03/2024","temp":23.81,"hum":86,"airquality":31},
+  {"roomID":8,"roomName":"dining room","date":"12/02/2024","temp":28.29,"hum":36,"airquality":29},
+  {"roomID":9,"roomName":"dining room","date":"29/09/2023","temp":32.84,"hum":96,"airquality":60},
+  {"roomID":10,"roomName":"dining room","date":"15/02/2023","temp":31.55,"hum":87,"airquality":59}]
