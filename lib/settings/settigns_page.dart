@@ -39,28 +39,28 @@ class SettingPage extends StatelessWidget {
         builder:(context, state) =>  SettingsList(
           sections: [
             SettingsSection(
-              title: Text('Background Collor'),
+              title: Text('Background Color'),
               tiles: <SettingsTile>[
                 SettingsTile.navigation(
                   onPressed: (value) {
                     MyApp.themeNotifier.value = ThemeMode.system;
                   },
                   leading: Icon(Icons.invert_colors),
-                  title: Text('Sytem'),
+                  title: Text('System'),
                 ),
                 SettingsTile.navigation(
                   onPressed: (value) {
                     MyApp.themeNotifier.value = ThemeMode.dark;
                   },
                   leading: Icon(Icons.dark_mode),
-                  title: Text('DarkMode'),
+                  title: Text('Dark Mode'),
                 ),
                 SettingsTile.navigation(
                   onPressed: (value) {
                     MyApp.themeNotifier.value = ThemeMode.light;
                   },
                   leading: Icon(Icons.light_mode),
-                  title: Text('lightMode'),
+                  title: Text('Light Mode'),
                 ),
               ],
             ),
@@ -72,7 +72,7 @@ class SettingPage extends StatelessWidget {
                     _signOut(context);
                   },
                   leading: Icon(Icons.logout, color: Colors.amber,),
-                  title: Text('LogOut', style:TextStyle(color: Colors.amber)),
+                  title: Text('Log-Out', style:TextStyle(color: Colors.amber)),
                 ),
               ],
             ),
