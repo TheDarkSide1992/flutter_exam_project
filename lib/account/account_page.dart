@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import '../app_drawer.dart';
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
+  AccountPage({super.key});
+
+  var firstName = "First Name";
+  var lastName = "Last Name";
+  var mail = "Mail@Mail.mail";
+  var numberOfDevices = 0;
+
+  //TODO implement api call refrence to get data. or pull from account state
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,10 @@ class AccountPage extends StatelessWidget {
             Icon(Icons.account_circle),
             SizedBox(height: 30),
             Title(color: Colors.purple, child: Text('Account')),
-            const Text('Tour at the Account page'),
+            SizedBox(height: 30),
+            Text('First name : $firstName  ,  Last Name: $lastName'),
+            Text('Mail : $mail'),
+            Text('Current number of devices : $numberOfDevices')
           ],
         ),
       ),
