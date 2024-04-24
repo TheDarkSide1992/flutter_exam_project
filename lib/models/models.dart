@@ -89,7 +89,8 @@ class SimpleDataDTO{
   double? airquality;
   String? roomName;
 
-  SimpleDataDTO({this.dateTime,
+  SimpleDataDTO({
+    this.dateTime,
     this.temp,
     this.hum,
     this.airquality,
@@ -100,9 +101,18 @@ class SimpleDataDTO{
 
     temp = (json["temprature"] as num).toDouble();
     dateTime = (json["date"] as DateTime);
-    hum = json['humidity'];
-    airquality = json['airquality'];
-    roomName = json['RoomName'];
+    hum = (json["humidity"] as num).toDouble();
+    airquality = (json["airquality"] as num).toDouble();
+    roomName = (json["RoomName"] as String).toString();
 
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["temprature"] = temp;
+    _data["date"] = dateTime;
+    _data["humidity"] = hum;
+    _data["airquality"] = airquality;
+    _data["RoomName"] = roomName;
+    return _data;
   }
 }

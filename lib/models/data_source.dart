@@ -2,15 +2,8 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_exam_project/models/aq_data_converter.dart';
 import 'package:flutter_exam_project/models/models.dart';
-import 'package:flutter_exam_project/models/room_data_converter.dart';
-import 'package:flutter_exam_project/models/sensor_data_converter.dart';
-import 'package:flutter_exam_project/models/temp_data_converter.dart';
-import 'package:flutter_exam_project/models/user_data_converter.dart';
 
-import 'device_data_converter.dart';
-import 'hum_data_converter.dart';
 
 abstract class DataSource {
   Future<UserDataDTO> getUserData();
@@ -44,7 +37,7 @@ class FakeDataSource implements DataSource {
   }
 
   @override
-  Future<DeviceDataDTO> getDeviceData() async{
+  Future<DeviceDataDTO> getDeviceData() async {
     final json = await rootBundle.loadString("assets/device_data.json");
     return DeviceDataDTO.fromJson(jsonDecode(json));
   }
@@ -79,4 +72,3 @@ class FakeDataSource implements DataSource {
     return SimpleDataDTO.fromJson(jsonDecode(json));
   }
 }
-

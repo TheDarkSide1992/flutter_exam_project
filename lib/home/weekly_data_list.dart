@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exam_project/home/current_room_data.dart';
 import 'package:flutter_exam_project/models/models.dart';
+import 'package:flutter_exam_project/server.dart';
 
 class WeeklyDataList extends StatelessWidget {
-  final SimpleDataDTO simpleData;
+  final SimpleDataDTO simpleDataDTO;
 
-  const WeeklyDataList({super.key, required this.simpleData})
+  const WeeklyDataList({super.key, required this.simpleDataDTO});
 
 
   @override
@@ -16,17 +17,19 @@ class WeeklyDataList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
             (context, index) {
+              final SimpleData simpleData = Server.getSimpleDataByID(index);
           final roomName = simpleData.roomName;
           final date = simpleData.dateTime;
           final temp = simpleData.temp;
           final hum = simpleData.hum;
           final aq = simpleData.airquality;
+          final roomID = simpleData.id;
 
           return GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CurrentRoomData(roomName)),
+                MaterialPageRoute(builder: (context) => CurrentRoomData()),
               );
             },
             child: Card(
@@ -41,8 +44,8 @@ class WeeklyDataList extends StatelessWidget {
 
                         Center(
                           child: Text(
-                            "${date?.day} / ${date?.month}",
-                            //dailyForecast.getDate(currentDate.day).toString(),
+                            '$roomName'
+                            '$date',
                             style: textTheme.displayMedium,
                           ),
                         ),
@@ -56,7 +59,6 @@ class WeeklyDataList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            //dailyForecast.getWeekday(currentDate.weekday),
                             date.toString(),
                             style: textTheme.headlineMedium,
                           ),
@@ -70,7 +72,7 @@ class WeeklyDataList extends StatelessWidget {
                           'Temperature $temp C'
                           'Humidity $hum'
                           'Air-quality $aq',
-                      //'${dailyForecast.highTemp} | ${dailyForecast.lowTemp} F',
+                      //'${SimpleData.highTemp} | ${SimpleData.lowTemp} F',
                       style: textTheme.titleMedium,
                     ),
                   ),
