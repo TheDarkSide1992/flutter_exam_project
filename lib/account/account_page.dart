@@ -24,15 +24,12 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Account'),
       ),
       drawer: const AppDrawer(),
       body:
-      BlocConsumer<ProfileCubit, ProfileState>(listener: (context, state) {
+          BlocConsumer<ProfileCubit, ProfileState>(listener: (context, state) {
         if (state is Autherror ||
             state is ProfileInitial ||
             state is LoggedOut) {
@@ -60,11 +57,69 @@ class AccountPage extends StatelessWidget {
               Text('$userName',
                   style: TextStyle(color: Colors.purple, fontSize: 24)),
               SizedBox(height: 30),
-              Text('First name : $firstName  ,  Last Name: $lastName'),
-              Text('city : $city'),
-              Text('Mail : $mail'),
-              Text('Current number of devices : $numberOfDevices')
-            ],),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Container(
+                      margin: new EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                          border: Border.all(
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(40),
+                              bottomRight: Radius.circular(40))),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('First name : $firstName',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
+                            Text('Last Name: $lastName',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
+                          ]),
+                    ),
+                    Container(
+                      margin: new EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          border: Border.all(
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                          ),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(40),
+                              bottomRight: Radius.circular(40))),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('city : $city',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
+                            Text('Mail : $mail',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
+                            Text('Current number of devices : $numberOfDevices',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
+                          ]),
+                    ),
+                  ]),
+            ],
+          ),
         );
       }),
     );
