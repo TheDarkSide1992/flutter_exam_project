@@ -17,11 +17,13 @@ class ProfileCubit extends Cubit<ProfileState> {
       return;
     }
 
-    final data = null; //await api call
+    _profile = new Profile(id: 1, username: 'My UserName',
+        firstName: 'Jason', lastName: 'Object', email: 'IamJsoN@object.dev',
+        city: 'API ram City');
     //TODO implement it so it call api to get single profile call datasource
 
 
-    if (data == null) {
+    if (_profile == null) {
       emit(Autherror());
     }
 
@@ -31,5 +33,12 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> signOut() async {
     _profile = null;
     emit(LoggedOut());
+  }
+
+  Future<Profile?> getProfile() async{
+    if(_profile != null) {
+      emit(LoggedProfile(loggedProfile: _profile!));
+    }
+    return null;
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'account/account_page.dart';
 import 'home/homepage.dart';
 import 'main.dart';
 import 'settings/settigns_page.dart';
@@ -40,7 +41,7 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
               title: Text('Acount'),
-              onTap: () => _onMenuTap(context, MyApp.new),
+              onTap: () => _onMenuTap(context, AccountPage.new),
               leading: Icon(Icons.account_circle),
           ),
           ListTile(
