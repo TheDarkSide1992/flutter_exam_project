@@ -17,6 +17,4 @@ class LoggedProfile extends ProfileState{
 
 class LoggedOut extends ProfileState {}
 
-class Autherror extends ProfileState{
-
-}
+class Autherror extends ProfileState{}
