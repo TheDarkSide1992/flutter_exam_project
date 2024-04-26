@@ -4,7 +4,7 @@ import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
 import '../cubit/account/profile_cubit.dart';
-import '../cubit/account/profile_model.dart';
+import '../models/profile_model.dart';
 import '../cubit/account/profile_state.dart';
 
 class AccountPage extends StatelessWidget {
@@ -38,12 +38,12 @@ class AccountPage extends StatelessWidget {
       }, builder: (context, state) {
         if (state is LoggedProfile) {
           Profile profile = state.loggedProfile;
-          id = profile.id;
-          userName = profile.username;
-          firstName = profile.firstName;
-          lastName = profile.lastName;
-          mail = profile.email;
-          city = profile.city;
+          id = profile.userId!;
+          userName = profile.username!;
+          firstName = profile.firstName!;
+          lastName = profile.lastName!;
+          mail = profile.email!;
+          city = profile.city!;
         }
 
         return Center(

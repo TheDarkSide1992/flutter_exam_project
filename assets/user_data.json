@@ -1,10 +1,8 @@
-[{"userID":1,"email":"pswadling0@house.gov","city":"Pingwang"},
-  {"userID":2,"email":"cbayle1@theatlantic.com","city":"Oliveirinha"},
-  {"userID":3,"email":"rbohlens2@pcworld.com","city":"Áyios Yeóryios"},
-  {"userID":4,"email":"edinan3@reddit.com","city":"Suchedniów"},
-  {"userID":5,"email":"jgumey4@google.ru","city":"Kérkyra"},
-  {"userID":6,"email":"tgurry5@boston.com","city":"Lyon"},
-  {"userID":7,"email":"mjanuszkiewicz6@ow.ly","city":"Reconquista"},
-  {"userID":8,"email":"tcastellan7@chicagotribune.com","city":"Beauharnois"},
-  {"userID":9,"email":"lsummerill8@dagondesign.com","city":"Iksan"},
-  {"userID":10,"email":"kmaddyson9@answers.com","city":"Uppsala"}]
+{
+  "userId": 1,
+  "username": "la Jsson User",
+  "firstName": "Jason",
+  "lastName": "Object",
+  "email": "IamJsoN@object.dev",
+  "city": "API ram City"
+}

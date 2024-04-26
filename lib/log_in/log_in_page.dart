@@ -30,13 +30,8 @@ class _LoginPageState extends State<LoginPage> {
     context.read<ProfileCubit>().signIn(
           _emailController.text,
           _passwordController.text,
+          context
         );
-
-    //TODO remowe this latter
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SettingPage()),
-    );
 
 /*    if (mounted) {
       setState(() {

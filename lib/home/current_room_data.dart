@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_exam_project/home/weekly_data_list.dart';
-import 'package:flutter_exam_project/models/data_source.dart';
+import 'package:flutter_exam_project/utils/data_source.dart';
 
 import '../app_drawer.dart';
-import '../models/models.dart';
+import '../models/SimpleDataDTO.dart';
 
 class CurrentRoomData extends StatelessWidget {
   const CurrentRoomData ({super.key});
