@@ -47,23 +47,15 @@ class WeeklyDataList extends StatelessWidget {
                       bottomLeft: Radius.circular(40))),
               child: Row(
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 200.0,
                     width: 200.0,
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
-                        Center(
-                          child: Text(
-                            '$roomName'
-                            '$date',
-                            style: TextStyle(
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary),
-                          ),
+                        Icon(
+                          Icons.ad_units_rounded,
+                          size: 100,
                         ),
                       ],
                     ),
@@ -75,7 +67,16 @@ class WeeklyDataList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            date.toString(),
+                            '$roomName',
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 24,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
+                          ),
+                          Text(
+                            '$date',
                             style: TextStyle(
                                 fontStyle: FontStyle.normal,
                                 fontSize: 16,
@@ -89,16 +90,37 @@ class WeeklyDataList extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Temperature $temp C'
-                      'Humidity $hum'
-                      'Air-quality $aq',
-                      //'${SimpleData.highTemp} | ${SimpleData.lowTemp} F',
-                      style: TextStyle(
-                          fontStyle: FontStyle.normal,
-                          fontSize: 16,
-                          color: Theme.of(context).colorScheme.inversePrimary),
-                    ),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Temperature $temp C',
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
+                          ),
+                          Text(
+                            'Humidity $hum',
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
+                          ),
+                          Text(
+                            'Air-quality $aq',
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
+                          ),
+                        ]),
                   ),
                 ],
               ),
