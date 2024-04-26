@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_exam_project/home/weekly_data_list.dart';
 import 'package:flutter_exam_project/models/data_source.dart';
-import 'package:flutter_exam_project/server.dart';
 
+import '../app_drawer.dart';
 import '../models/models.dart';
 
 class CurrentRoomData extends StatelessWidget {
@@ -12,6 +12,11 @@ class CurrentRoomData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('HOME'),
+      ),
+      drawer: const AppDrawer(),
       body: FutureBuilder(
         future: context.read<DataSource>().getSimpleData(),
         builder: (context, snapShoot) => CustomScrollView(
@@ -20,7 +25,7 @@ class CurrentRoomData extends StatelessWidget {
             if (snapShoot.hasData)
               WeeklyDataList(simpleDataDTO: snapShoot.data!)
             else if (snapShoot.hasError)
-              _buildError(snapShoot as AsyncSnapshot<SimpleData>, context)
+              _buildError(snapShoot, context)
             else
               _buildSpinner()
           ],
@@ -31,7 +36,7 @@ class CurrentRoomData extends StatelessWidget {
   }
 
   SliverFillRemaining _buildSpinner() {
-    return SliverFillRemaining(
+    return const SliverFillRemaining(
       hasScrollBody: false,
       child: Center(
         child: CircularProgressIndicator.adaptive(),
@@ -39,7 +44,7 @@ class CurrentRoomData extends StatelessWidget {
     );
   }
 
-  SliverToBoxAdapter _buildError(AsyncSnapshot<SimpleData> snapshoot, BuildContext context) {
+  SliverToBoxAdapter _buildError(AsyncSnapshot<SimpleDataDTO> snapshoot, BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: EdgeInsets.all(16),

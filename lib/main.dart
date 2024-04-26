@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
 import 'package:flutter_exam_project/log_in/log_in_page.dart';
+import 'package:provider/provider.dart';
 
 import 'app_drawer.dart';
+import 'models/data_source.dart';
 
 void main() {
   runApp(
@@ -12,6 +14,7 @@ void main() {
         BlocProvider<ProfileCubit>(
           create: (BuildContext context) => ProfileCubit()
         ),
+        Provider<DataSource>(create: (context) => FakeDataSource())
       ],
       child: const MyApp(),
     ),

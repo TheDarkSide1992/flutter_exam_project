@@ -1,4 +1,4 @@
-class UserDataDTO{
+/**class UserDataDTO{
   int? userID;
   String? email;
   String? city;
@@ -80,9 +80,10 @@ class AqDataDTO{
     date = json['date'];
     airquality = json['airquality'];
   }
-}
+}*/
 
 class SimpleDataDTO{
+  int? id;
   DateTime? dateTime;
   double? temp;
   double? hum;
@@ -90,15 +91,17 @@ class SimpleDataDTO{
   String? roomName;
 
   SimpleDataDTO({
-    this.dateTime,
-    this.temp,
-    this.hum,
-    this.airquality,
-    this.roomName
+    required this.id,
+    required this.dateTime,
+    required this.temp,
+    required this.hum,
+    required this.airquality,
+    required this.roomName
   });
 
   SimpleDataDTO.fromJson(Map<String, dynamic> json){
 
+    id = (json["roomID"] as num).toInt();
     temp = (json["temprature"] as num).toDouble();
     dateTime = (json["date"] as DateTime);
     hum = (json["humidity"] as num).toDouble();
@@ -108,6 +111,7 @@ class SimpleDataDTO{
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["roomID"] = id;
     _data["temprature"] = temp;
     _data["date"] = dateTime;
     _data["humidity"] = hum;
