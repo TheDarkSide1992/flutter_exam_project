@@ -33,7 +33,7 @@ class AccountPage extends StatelessWidget {
         if (state is Autherror ||
             state is ProfileInitial ||
             state is LoggedOut) {
-          context.showErrorSnackBar(message: "Ann error acoured");
+          context.showErrorSnackBar(message: "An error occurred");
         }
       }, builder: (context, state) {
         if (state is LoggedProfile) {
