@@ -66,7 +66,7 @@ class Server {
       _kDummyData.values.toList();
 
   static SimpleData getSimpleDataByID(int id) {
-    assert(id >= 0 && id <= 6);
+    assert(id >= 0);
     return _kDummyData[id]!;
   }
 }

@@ -105,6 +105,7 @@ class WeeklyDataList extends StatelessWidget {
             ).animate().slideX(delay: 600.ms, begin: -1),
           );
         },
+        childCount: Server.getSimpleDataList().length,
       ),
     );
   }
