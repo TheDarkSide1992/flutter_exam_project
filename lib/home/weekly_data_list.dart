@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_exam_project/home/current_room_data.dart';
 import 'package:flutter_exam_project/models/models.dart';
 import 'package:flutter_exam_project/server.dart';
@@ -8,7 +9,6 @@ class WeeklyDataList extends StatelessWidget {
 
   const WeeklyDataList({super.key, required this.simpleDataDTO});
 
-
   @override
   Widget build(BuildContext context) {
     final DateTime currentDate = DateTime.now();
@@ -16,8 +16,8 @@ class WeeklyDataList extends StatelessWidget {
 
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              final SimpleData simpleData = Server.getSimpleDataByID(index);
+        (context, index) {
+          final SimpleData simpleData = Server.getSimpleDataByID(index);
           final roomName = simpleData.roomName;
           final date = simpleData.dateTime;
           final temp = simpleData.temp;
@@ -32,7 +32,19 @@ class WeeklyDataList extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => CurrentRoomData()),
               );
             },
-            child: Card(
+            child: Container(
+              margin: new EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(30.0),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
+                      bottomLeft: Radius.circular(40))),
               child: Row(
                 children: <Widget>[
                   SizedBox(
@@ -41,12 +53,16 @@ class WeeklyDataList extends StatelessWidget {
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
-
                         Center(
                           child: Text(
                             '$roomName'
                             '$date',
-                            style: textTheme.displayMedium,
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
                           ),
                         ),
                       ],
@@ -60,7 +76,12 @@ class WeeklyDataList extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             date.toString(),
-                            style: textTheme.headlineMedium,
+                            style: TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary),
                           ),
                         ],
                       ),
@@ -69,19 +90,21 @@ class WeeklyDataList extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                          'Temperature $temp C'
-                          'Humidity $hum'
-                          'Air-quality $aq',
+                      'Temperature $temp C'
+                      'Humidity $hum'
+                      'Air-quality $aq',
                       //'${SimpleData.highTemp} | ${SimpleData.lowTemp} F',
-                      style: textTheme.titleMedium,
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16,
+                          color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                   ),
                 ],
               ),
-            ),
+            ).animate().slideX(delay: 600.ms, begin: -1),
           );
         },
-        childCount: 7,
       ),
     );
   }

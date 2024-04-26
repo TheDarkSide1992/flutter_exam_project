@@ -27,7 +27,6 @@ class FakeDataSource implements DataSource {
   @override
   Future<SimpleDataDTO> getSimpleData() async {
     final json = await rootBundle.loadString("assets/simple_data.json");
-    //final jsonMap = jsonDecode(json.toString()) as Map<String, dynamic>;
     return SimpleDataDTO.fromJson(jsonDecode(json));
   }
 

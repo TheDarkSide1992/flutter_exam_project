@@ -6,6 +6,7 @@ import 'package:flutter_exam_project/settings/settigns_page.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
+import '../home/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   static Route<void> route() {
@@ -65,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
         listener: (context, state) {
           if (state is LoggedProfile) {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SettingPage()),
+              MaterialPageRoute(builder: (context) => const RoomOverviewApp()),
             );
           }
           if (state is Autherror) {

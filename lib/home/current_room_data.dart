@@ -21,7 +21,6 @@ class CurrentRoomData extends StatelessWidget {
         future: context.read<DataSource>().getSimpleData(),
         builder: (context, snapShoot) => CustomScrollView(
           slivers: <Widget>[
-            //WeatherSliverAppBar(),
             if (snapShoot.hasData)
               WeeklyDataList(simpleDataDTO: snapShoot.data!)
             else if (snapShoot.hasError)

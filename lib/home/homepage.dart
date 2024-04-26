@@ -8,7 +8,7 @@ class RoomOverviewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: Theme.of(context),
       scrollBehavior: const ConstantScrollBehavior(),
       title: 'Room Overview',
       home: CurrentRoomData(),
