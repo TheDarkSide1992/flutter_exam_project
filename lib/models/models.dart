@@ -103,21 +103,21 @@ class SimpleDataDTO{
   SimpleDataDTO.fromJson(Map<String, dynamic> json){
 
     roomID = (json["roomID"] as num).toInt();
-    temp = (json["temprature"] as num).toDouble();
-    date = (json["date"]);
-    hum = (json["humidity"] as num).toDouble();
-    airquality = (json["airquality"] as num).toDouble();
     roomName = (json["RoomName"]);
+    date = (json["date"]);
+    temp = (json["temp"] as num).toDouble();
+    hum = (json["hum"] as num).toDouble();
+    airquality = (json["airquality"] as num).toDouble();
 
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["roomID"] = roomID;
-    _data["temprature"] = temp;
-    _data["date"] = date;
-    _data["humidity"] = hum;
-    _data["airquality"] = airquality;
     _data["RoomName"] = roomName;
+    _data["date"] = date;
+    _data["temp"] = temp;
+    _data["hum"] = hum;
+    _data["airquality"] = airquality;
     return _data;
   }
 }
