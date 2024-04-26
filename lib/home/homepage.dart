@@ -31,9 +31,6 @@ class ConstantScrollBehavior extends ScrollBehavior {
       child;
 
   @override
-  TargetPlatform getPlatform(BuildContext context) => TargetPlatform.macOS;
-
-  @override
   ScrollPhysics getScrollPhysics(BuildContext context) =>
       const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics());
 }

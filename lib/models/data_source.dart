@@ -6,6 +6,7 @@ import 'package:flutter_exam_project/models/models.dart';
 
 
 abstract class DataSource {
+  Future<SimpleDataDTO> getSimpleData();
  /** Future<UserDataDTO> getUserData();
 
   Future<RoomDataDTO> getRoomData();
@@ -20,10 +21,16 @@ abstract class DataSource {
 
   Future<AqDataDTO> getAqData();*/
 
-  Future<SimpleDataDTO> getSimpleData();
 }
 
 class FakeDataSource implements DataSource {
+  @override
+  Future<SimpleDataDTO> getSimpleData() async {
+    final json = await rootBundle.loadString("assets/simple_data.json");
+    //final jsonMap = jsonDecode(json.toString()) as Map<String, dynamic>;
+    return SimpleDataDTO.fromJson(jsonDecode(json));
+  }
+
   /**@override
   Future<UserDataDTO> getUserData() async {
     final json = await rootBundle.loadString("assets/user_data.json");
@@ -66,10 +73,4 @@ class FakeDataSource implements DataSource {
     return TempDataDTO.fromJson(jsonDecode(json));
   }*/
 
-  @override
-  Future<SimpleDataDTO> getSimpleData() async {
-    final json = await rootBundle.loadString("assets/simple_data.json");
-    final jsonMap = jsonDecode(json.toString()) as Map<String, dynamic>;
-    return SimpleDataDTO.fromJson(jsonMap);
-  }
 }

@@ -83,16 +83,17 @@ class AqDataDTO{
 }*/
 
 class SimpleDataDTO{
-  int? id;
-  DateTime? dateTime;
+  int? roomID;
+  //DateTime? date;
+  String? date;
   double? temp;
   double? hum;
   double? airquality;
   String? roomName;
 
   SimpleDataDTO({
-    required this.id,
-    required this.dateTime,
+    required this.roomID,
+    required this.date,
     required this.temp,
     required this.hum,
     required this.airquality,
@@ -101,19 +102,19 @@ class SimpleDataDTO{
 
   SimpleDataDTO.fromJson(Map<String, dynamic> json){
 
-    id = (json["roomID"] as num).toInt();
+    roomID = (json["roomID"] as num).toInt();
     temp = (json["temprature"] as num).toDouble();
-    dateTime = (json["date"] as DateTime);
+    date = (json["date"]);
     hum = (json["humidity"] as num).toDouble();
     airquality = (json["airquality"] as num).toDouble();
-    roomName = (json["RoomName"] as String).toString();
+    roomName = (json["RoomName"]);
 
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["roomID"] = id;
+    _data["roomID"] = roomID;
     _data["temprature"] = temp;
-    _data["date"] = dateTime;
+    _data["date"] = date;
     _data["humidity"] = hum;
     _data["airquality"] = airquality;
     _data["RoomName"] = roomName;
