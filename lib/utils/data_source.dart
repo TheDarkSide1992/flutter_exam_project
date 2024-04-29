@@ -7,16 +7,17 @@ import 'package:flutter_exam_project/models/profile_model.dart';
 
 
 abstract class DataSource {
-  Future<SimpleDataDTO> getSimpleData();
+  Future<List<SimpleDataDTO>> getSimpleData();
   Future<Profile> getUserData(String email, String password);
 
 }
 
 class FakeDataSource implements DataSource {
   @override
-  Future<SimpleDataDTO> getSimpleData() async {
+  Future<List<SimpleDataDTO>> getSimpleData() async {
     final json = await rootBundle.loadString("assets/simple_data.json");
-    return SimpleDataDTO.fromJson(jsonDecode(json));
+    final list = jsonDecode(json) as  List<dynamic>;
+    return list.map((e) => SimpleDataDTO.fromJson(e)).toList();
   }
 
   @override

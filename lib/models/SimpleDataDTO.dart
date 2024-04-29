@@ -1,6 +1,5 @@
 class SimpleDataDTO{
-  int? roomID;
-  //DateTime? date;
+  int? roomId;
   String? date;
   double? temp;
   double? hum;
@@ -8,7 +7,7 @@ class SimpleDataDTO{
   String? roomName;
 
   SimpleDataDTO({
-    required this.roomID,
+    required this.roomId,
     required this.date,
     required this.temp,
     required this.hum,
@@ -18,8 +17,9 @@ class SimpleDataDTO{
 
   SimpleDataDTO.fromJson(Map<String, dynamic> json){
 
-    roomID = (json["roomID"] as num).toInt();
-    roomName = (json["RoomName"]);
+    roomId = (json["roomId"] as num).toInt();
+    date = (json["date"]);
+    roomName = (json["roomName"]);
     date = (json["date"]);
     temp = (json["temp"] as num).toDouble();
     hum = (json["hum"] as num).toDouble();
@@ -28,8 +28,9 @@ class SimpleDataDTO{
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["roomID"] = roomID;
-    _data["RoomName"] = roomName;
+    _data["roomId"] = roomId;
+    _data["date"] = date;
+    _data["roomName"] = roomName;
     _data["date"] = date;
     _data["temp"] = temp;
     _data["hum"] = hum;

@@ -10,16 +10,18 @@ import '../../utils/data_source.dart';
 import 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  ProfileCubit() : super(ProfileInitial());
+  ProfileCubit(this.dataSource) : super(ProfileInitial());
+
+  final DataSource dataSource;
 
   Profile? _profile;
 
-  Future<void> signIn(String email, String password, BuildContext context) async {
+  Future<void> signIn(String email, String password) async {
     if (_profile != null) {
       return;
     }
     //TODO implement it so it call api to get single profile call datasource
-    _profile = await context.read<DataSource>().getUserData(email, password) as Profile;
+    _profile = await dataSource.getUserData(email, password) as Profile;
 
 
     if (_profile == null) {

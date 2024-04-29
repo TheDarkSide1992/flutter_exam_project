@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
+import 'package:flutter_exam_project/cubit/device/device_cubit.dart';
 import 'package:flutter_exam_project/log_in/log_in_page.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,10 @@ void main() {
     MultiBlocProvider(
       providers: [
         BlocProvider<ProfileCubit>(
-          create: (BuildContext context) => ProfileCubit()
+          create: (BuildContext context) => ProfileCubit(FakeDataSource())
+        ),
+        BlocProvider<DeviceCubit>(
+          create: (BuildContext context) => DeviceCubit(FakeDataSource())
         ),
         Provider<DataSource>(create: (context) => FakeDataSource())
       ],

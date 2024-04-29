@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
 import 'package:flutter_exam_project/cubit/account/profile_state.dart';
-import 'package:flutter_exam_project/settings/settigns_page.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
-
-import '../app_drawer.dart';
 import '../home/homepage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
     context.read<ProfileCubit>().signIn(
           _emailController.text,
           _passwordController.text,
-          context
         );
 
 /*    if (mounted) {
