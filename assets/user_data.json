@@ -1,8 +1,7 @@
 {
   "userId": 1,
   "username": "la Jsson User",
-  "firstName": "Jason",
-  "lastName": "Object",
+  "name": "Jason Object",
   "email": "IamJsoN@object.dev",
   "city": "API ram City"
 }

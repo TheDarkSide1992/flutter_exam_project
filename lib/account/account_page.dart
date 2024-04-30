@@ -12,8 +12,7 @@ class AccountPage extends StatelessWidget {
 
   var id = 0;
   var userName = "N/A";
-  var firstName = "N/A";
-  var lastName = "N/A";
+  var name = "N/A";
   var mail = "N/A";
   var city = "N/A";
   var numberOfDevices = 0;
@@ -40,8 +39,7 @@ class AccountPage extends StatelessWidget {
           Profile profile = state.loggedProfile;
           id = profile.userId!;
           userName = profile.username!;
-          firstName = profile.firstName!;
-          lastName = profile.lastName!;
+          name = profile.name!;
           mail = profile.email!;
           city = profile.city!;
         }
@@ -64,32 +62,6 @@ class AccountPage extends StatelessWidget {
                       margin: new EdgeInsets.all(15.0),
                       padding: EdgeInsets.all(20.0),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              bottomRight: Radius.circular(40))),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text('First name : $firstName',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
-                            Text('Last Name: $lastName',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
-                          ]),
-                    ),
-                    Container(
-                      margin: new EdgeInsets.all(15.0),
-                      padding: EdgeInsets.all(20.0),
-                      decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.primary,
                           border: Border.all(
                             color: Theme.of(context).colorScheme.inversePrimary,
@@ -100,6 +72,11 @@ class AccountPage extends StatelessWidget {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
+                            Text('Name : $name',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
                             Text('city : $city',
                                 style: TextStyle(
                                     color: Theme.of(context)

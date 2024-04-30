@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'account/account_page.dart';
 import 'home/homepage.dart';
-import 'main.dart';
 import 'settings/settigns_page.dart';
 
 
@@ -30,7 +29,7 @@ class AppDrawer extends StatelessWidget {
                 colors: [Colors.pinkAccent, Colors.blueAccent],
               ),
             ),
-            child: Text('Remote_Controller', style: textTheme.titleLarge),
+            child: Text('Fresh Rooms Controller', style: textTheme.titleLarge),
           ),
 
           //Item paths

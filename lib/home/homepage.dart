@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
@@ -12,13 +13,11 @@ class RoomOverviewApp extends StatefulWidget {
 
   @override
   State<RoomOverviewApp> createState() => _RoomOverviewAppState();
-
-
 }
 
 class _RoomOverviewAppState extends State<RoomOverviewApp> {
   @override
-  initState(){
+  initState() {
     super.initState();
     context.read<DeviceCubit>().getDeviceData();
   }
@@ -51,7 +50,12 @@ class _RoomOverviewAppState extends State<RoomOverviewApp> {
             final devices = state.simpleDataLoadList;
             builder:
             return CustomScrollView(slivers: <Widget>[
-              for (final device in devices!) SliverToBoxAdapter(child: DeviceCard(device)),
+              for (final device in devices!)
+                SliverToBoxAdapter(
+                  child: DeviceCard(device)
+                      .animate()
+                      .slideX(delay: 600.ms, begin: -1),
+                ),
             ]);
           })),
     );

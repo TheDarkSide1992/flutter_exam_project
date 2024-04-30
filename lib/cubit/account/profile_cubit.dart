@@ -1,9 +1,6 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 import '../../models/profile_model.dart';
 import '../../utils/data_source.dart';
@@ -20,7 +17,6 @@ class ProfileCubit extends Cubit<ProfileState> {
     if (_profile != null) {
       return;
     }
-    //TODO implement it so it call api to get single profile call datasource
     _profile = await dataSource.getUserData(email, password) as Profile;
 
 

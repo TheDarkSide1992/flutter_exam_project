@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/cubit/device/device_cubit.dart';
-import 'package:flutter_exam_project/cubit/device/device_state.dart';
 import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
-import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../account/account_page.dart';
 
@@ -15,6 +10,7 @@ class DeviceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -39,7 +35,7 @@ class DeviceCard extends StatelessWidget {
                 bottomLeft: Radius.circular(40))),
         child: Row(
           children: <Widget>[
-            const SizedBox(
+             SizedBox(
               height: 200.0,
               width: 200.0,
               child: Stack(
@@ -48,6 +44,7 @@ class DeviceCard extends StatelessWidget {
                   Icon(
                     Icons.ad_units_rounded,
                     size: 100,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ],
               ),
@@ -82,21 +79,21 @@ class DeviceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Temperature ${device.temp} C',
+                      'Temperature : ${device.temp} C',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 16,
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     Text(
-                      'Humidity ${device.hum}',
+                      'Humidity : ${device.hum} %',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 16,
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     Text(
-                      'Air-quality ${device.airquality}',
+                      'Air-quality : ${device.airquality} ppm',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 16,
@@ -106,7 +103,7 @@ class DeviceCard extends StatelessWidget {
             ),
           ],
         ),
-      ).animate().slideX(delay: 600.ms, begin: -1),
+      ),
     );
   }
 }
