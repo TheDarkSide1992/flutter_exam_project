@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   settings_ui: 2.0.2
   flutter_bloc: ^8.1.5
+  provider: ^6.1.2
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +56,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

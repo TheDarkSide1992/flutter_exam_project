@@ -4,7 +4,7 @@ import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
 import '../cubit/account/profile_cubit.dart';
-import '../cubit/account/profile_model.dart';
+import '../models/profile_model.dart';
 import '../cubit/account/profile_state.dart';
 
 class AccountPage extends StatelessWidget {
@@ -12,8 +12,7 @@ class AccountPage extends StatelessWidget {
 
   var id = 0;
   var userName = "N/A";
-  var firstName = "N/A";
-  var lastName = "N/A";
+  var name = "N/A";
   var mail = "N/A";
   var city = "N/A";
   var numberOfDevices = 0;
@@ -38,12 +37,11 @@ class AccountPage extends StatelessWidget {
       }, builder: (context, state) {
         if (state is LoggedProfile) {
           Profile profile = state.loggedProfile;
-          id = profile.id;
-          userName = profile.username;
-          firstName = profile.firstName;
-          lastName = profile.lastName;
-          mail = profile.email;
-          city = profile.city;
+          id = profile.userId!;
+          userName = profile.username!;
+          name = profile.name!;
+          mail = profile.email!;
+          city = profile.city!;
         }
 
         return Center(
@@ -64,32 +62,6 @@ class AccountPage extends StatelessWidget {
                       margin: new EdgeInsets.all(15.0),
                       padding: EdgeInsets.all(20.0),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              bottomRight: Radius.circular(40))),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text('First name : $firstName',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
-                            Text('Last Name: $lastName',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
-                          ]),
-                    ),
-                    Container(
-                      margin: new EdgeInsets.all(15.0),
-                      padding: EdgeInsets.all(20.0),
-                      decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.primary,
                           border: Border.all(
                             color: Theme.of(context).colorScheme.inversePrimary,
@@ -100,6 +72,11 @@ class AccountPage extends StatelessWidget {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
+                            Text('Name : $name',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary)),
                             Text('city : $city',
                                 style: TextStyle(
                                     color: Theme.of(context)

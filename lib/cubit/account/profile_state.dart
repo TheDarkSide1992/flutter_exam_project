@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-import 'profile_model.dart';
+import '../../models/profile_model.dart';
 
 @immutable
 abstract class ProfileState {}

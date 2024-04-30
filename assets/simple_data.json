@@ -1,0 +1,68 @@
+[
+  {
+    "roomId": 1,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 2,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 3,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 4,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 5,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 6,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 7,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  },
+  {
+    "roomId": 8,
+    "date": "12/01/2020",
+    "temp": 34.4,
+    "hum": 25.0,
+    "airquality": 80.0,
+    "roomName": "bedroom"
+  }
+]
+
+

@@ -18,4 +18,13 @@ extension ShowSnackBar on BuildContext {
   void showErrorSnackBar({required String message}) {
     showSnackBar(message: message, backgroundColor: Colors.red);
   }
+
+  SliverFillRemaining buildSpinner() {
+    return const SliverFillRemaining(
+      hasScrollBody: false,
+      child: Center(
+        child: CircularProgressIndicator.adaptive(),
+      ),
+    );
+  }
 }
