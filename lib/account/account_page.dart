@@ -3,16 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
-import '../cubit/account/profile_cubit.dart';
+import '../cubit/account/profile_bloc.dart';
 import '../models/profile_model.dart';
 import '../cubit/account/profile_state.dart';
 
 class AccountPage extends StatelessWidget {
   AccountPage({super.key});
 
-  var id = 0;
-  var userName = "N/A";
-  var name = "N/A";
+  var realname = "N/A";
   var mail = "N/A";
   var city = "N/A";
   var numberOfDevices = 0;
@@ -28,7 +26,7 @@ class AccountPage extends StatelessWidget {
       ),
       drawer: const AppDrawer(),
       body:
-          BlocConsumer<ProfileCubit, ProfileState>(listener: (context, state) {
+          BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
         if (state is Autherror ||
             state is ProfileInitial ||
             state is LoggedOut) {
@@ -37,9 +35,7 @@ class AccountPage extends StatelessWidget {
       }, builder: (context, state) {
         if (state is LoggedProfile) {
           Profile profile = state.loggedProfile;
-          id = profile.userId!;
-          userName = profile.username!;
-          name = profile.name!;
+          realname = profile.realname!;
           mail = profile.email!;
           city = profile.city!;
         }
@@ -52,7 +48,7 @@ class AccountPage extends StatelessWidget {
                 Icons.account_circle,
                 size: 85,
               ),
-              Text('$userName',
+              Text('$realname',
                   style: TextStyle(color: Colors.purple, fontSize: 24)),
               SizedBox(height: 30),
               Row(
@@ -72,11 +68,6 @@ class AccountPage extends StatelessWidget {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text('Name : $name',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
                             Text('city : $city',
                                 style: TextStyle(
                                     color: Theme.of(context)

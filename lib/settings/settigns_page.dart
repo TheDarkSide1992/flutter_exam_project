@@ -4,7 +4,7 @@ import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../app_drawer.dart';
-import '../cubit/account/profile_cubit.dart';
+import '../cubit/account/profile_bloc.dart';
 import '../cubit/account/profile_state.dart';
 import '../main.dart';
 
@@ -13,7 +13,7 @@ class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
   Future<void> _signOut(BuildContext context) async {
-    context.read<ProfileCubit>().signOut();
+    context.read<ProfileBloc>().signOut;
   }
 
   @override
@@ -26,7 +26,7 @@ class SettingPage extends StatelessWidget {
       ),
       drawer: const AppDrawer(),
 
-      body: BlocConsumer<ProfileCubit, ProfileState>(
+      body: BlocConsumer<ProfileBloc, ProfileState>(
         listener: (context, state) {
           if (state is LoggedOut) {
             context.showSnackBar(message: "you have been signed out", backgroundColor: Colors.amber);
