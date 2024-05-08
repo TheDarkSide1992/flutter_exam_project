@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/events.dart';
+import 'package:flutter_exam_project/models/profile_model.dart';
 import 'package:flutter_exam_project/utils/broadcast_ws_channel.dart';
 
-import '../../models/profile_model.dart';
 import '../../utils/data_source.dart';
 import 'profile_state.dart';
 

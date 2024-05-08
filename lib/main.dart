@@ -14,11 +14,13 @@ void main() {
   // Configure logging for bloc
   Bloc.observer = LoggerBlocObserver();
 
+  final url = "ws://localhost:8181";
+
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider<ProfileBloc>(
-          create: (BuildContext context) => ProfileBloc(BroadcastWsChannel(Uri.parse("ws://localhost:8181")))
+          create: (BuildContext context) => ProfileBloc(BroadcastWsChannel(Uri.parse(url)))
         ),
         BlocProvider<DeviceCubit>(
           create: (BuildContext context) => DeviceCubit(FakeDataSource()) //TODO Make it use bloc
