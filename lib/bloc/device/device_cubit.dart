@@ -7,6 +7,7 @@ import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
 
 import '../../utils/data_source.dart';
 
+//TODO make into bloc, once backend for device is made
 class DeviceCubit extends Cubit<DeviceState> {
   DeviceCubit(this.dataSource) : super(DeviceInitial());
 

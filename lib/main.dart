@@ -21,9 +21,9 @@ void main() {
           create: (BuildContext context) => ProfileBloc(BroadcastWsChannel(Uri.parse("ws://localhost:8181")))
         ),
         BlocProvider<DeviceCubit>(
-          create: (BuildContext context) => DeviceCubit(FakeDataSource())
+          create: (BuildContext context) => DeviceCubit(FakeDataSource()) //TODO Make it use bloc
         ),
-        Provider<DataSource>(create: (context) => FakeDataSource())
+        Provider<DataSource>(create: (context) => FakeDataSource()) //TODO Remowe the need for a datasource
       ],
       child: const MyApp(),
     ),

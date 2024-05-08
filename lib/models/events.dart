@@ -83,6 +83,7 @@ class ClientWantsToAuthenticateWithJwtDto extends ClientEvent
       _$ClientWantsToAuthenticateWithJwtDtoFromJson(json);
 }
 
+//TODO implement call for rooms and device once backend is made
 
 
 //SERVER
@@ -140,4 +141,6 @@ class ServerAuthenticatesUserFromJwt extends ServerEvent
       Map<String, Object?> json) =>
       _$ServerAuthenticatesUserFromJwtFromJson(json);
 }
+
+//TODO implement call for Server responds rooms and device once backend is made
 
