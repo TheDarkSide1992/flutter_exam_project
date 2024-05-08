@@ -16,7 +16,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
-  final _emailController = TextEditingController(text: " ");
+  final _emailController = TextEditingController(text: "");
   final _passwordController = TextEditingController(text: "");
 
   Future<void> _signIn() async {
@@ -29,11 +29,6 @@ class _LoginPageState extends State<LoginPage> {
           _passwordController.text,
         );
 
-/*    if (mounted) {
-      setState(() {
-        _isLoading = true;
-      });
-    }*/
 
     setState(() {
       _isLoading = false;

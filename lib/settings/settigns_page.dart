@@ -13,7 +13,7 @@ class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
   Future<void> _signOut(BuildContext context) async {
-    context.read<ProfileBloc>().signOut;
+    context.read<ProfileBloc>().signOut();
   }
 
   @override

@@ -12,6 +12,7 @@ import 'profile_state.dart';
 class ProfileBloc extends Bloc<BaseEvent, ProfileState> {
   ProfileBloc(this.wsChannel) : super(ProfileInitial()){
     on<ServerLogsInUser>(_onServerLogsInUser);
+    on<ServerLogsoutUser>(_onServerLogsoutUser);
     on<ServerSendsAccountData>(_onServerSendsAccountData);
     on<ClientEvent>(_onClientEvent);
 
@@ -47,7 +48,7 @@ class ProfileBloc extends Bloc<BaseEvent, ProfileState> {
     add(ClientWantsToLoginDto(eventType: ClientWantsToLoginDto.name, email: email, password: password));
   }
 
-  Future<void> signOut(String email, String password) async {
+  Future<void> signOut() async {
     add(ClientWantsToLogoutDto(eventType: ClientWantsToLogoutDto.name));
   }
 
@@ -55,11 +56,17 @@ class ProfileBloc extends Bloc<BaseEvent, ProfileState> {
     wsChannel.sink.add(jsonEncode(event.toJson()));
   }
 
+
   FutureOr<void> _onServerLogsInUser(ServerLogsInUser event, Emitter<ProfileState> emit) {
     add(ClientWantsAccountInfoDto(eventType: ClientWantsAccountInfoDto.name));
   }
 
   FutureOr<void> _onServerSendsAccountData(ServerSendsAccountData event, Emitter<ProfileState> emit) {
     emit(LoggedProfile(loggedProfile: Profile(realname: event.realname, email: event.email, city: event.city)));
+  }
+
+  FutureOr<void> _onServerLogsoutUser(ServerLogsoutUser event, Emitter<ProfileState> emit) {
+    emit(LoggedOut());
+    _jwt = null;
   }
 }
