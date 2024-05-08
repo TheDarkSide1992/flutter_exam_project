@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/cubit/account/profile_bloc.dart';
-import 'package:flutter_exam_project/cubit/device/device_cubit.dart';
+import 'package:flutter_exam_project/bloc/account/profile_bloc.dart';
+import 'package:flutter_exam_project/bloc/device/device_cubit.dart';
 import 'package:flutter_exam_project/log_in/log_in_page.dart';
 import 'package:flutter_exam_project/utils/broadcast_ws_channel.dart';
 import 'package:provider/provider.dart';

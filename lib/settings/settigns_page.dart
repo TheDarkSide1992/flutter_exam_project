@@ -4,8 +4,8 @@ import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 import '../app_drawer.dart';
-import '../cubit/account/profile_bloc.dart';
-import '../cubit/account/profile_state.dart';
+import '../bloc/account/profile_bloc.dart';
+import '../bloc/account/profile_state.dart';
 import '../main.dart';
 
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/cubit/account/profile_bloc.dart';
-import 'package:flutter_exam_project/cubit/account/profile_state.dart';
+import 'package:flutter_exam_project/bloc/account/profile_bloc.dart';
+import 'package:flutter_exam_project/bloc/account/profile_state.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 import '../home/homepage.dart';
 

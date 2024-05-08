@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
-import '../cubit/account/profile_bloc.dart';
+import '../bloc/account/profile_bloc.dart';
 import '../models/profile_model.dart';
-import '../cubit/account/profile_state.dart';
+import '../bloc//account/profile_state.dart';
 
 class AccountPage extends StatelessWidget {
   AccountPage({super.key});
