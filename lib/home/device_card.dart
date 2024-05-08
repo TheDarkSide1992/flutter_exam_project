@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
 
 import '../account/account_page.dart';
+import '../room/room_page.dart';
 
 class DeviceCard extends StatelessWidget {
   const DeviceCard(this.device, {super.key});
@@ -17,7 +18,7 @@ class DeviceCard extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  AccountPage()), //TODO Change this to relevant widget
+                  RoomPage(device)), //TODO Change this to relevant widget
         );
       },
       child: Container(
