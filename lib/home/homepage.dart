@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
-import '../cubit/device/device_cubit.dart';
-import '../cubit/device/device_state.dart';
+import '../bloc/device/device_cubit.dart';
+import '../bloc/device/device_state.dart';
 import 'device_card.dart';
 
 class RoomOverviewApp extends StatefulWidget {

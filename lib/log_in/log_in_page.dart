@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/cubit/account/profile_cubit.dart';
-import 'package:flutter_exam_project/cubit/account/profile_state.dart';
+import 'package:flutter_exam_project/bloc/account/profile_bloc.dart';
+import 'package:flutter_exam_project/bloc/account/profile_state.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 import '../home/homepage.dart';
 
@@ -16,24 +16,19 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController(text: "");
+  final _passwordController = TextEditingController(text: "");
 
   Future<void> _signIn() async {
     setState(() {
       _isLoading = true;
     });
 
-    context.read<ProfileCubit>().signIn(
+    context.read<ProfileBloc>().signIn(
           _emailController.text,
           _passwordController.text,
         );
 
-/*    if (mounted) {
-      setState(() {
-        _isLoading = true;
-      });
-    }*/
 
     setState(() {
       _isLoading = false;
@@ -53,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Sign In')),
-      body: BlocConsumer<ProfileCubit, ProfileState>(
+      body: BlocConsumer<ProfileBloc, ProfileState>(
         listener: (context, state) {
           if (state is LoggedProfile) {
             Navigator.of(context).push(

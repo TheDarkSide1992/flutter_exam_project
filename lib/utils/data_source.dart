@@ -22,13 +22,15 @@ class FakeDataSource implements DataSource {
 
   @override
   Future<Profile> getUserData(String email, String password) async {
-
+/*
     if(identical(email, "IamJsoN@object.dev") || identical(password, "123456")) {
       final json = await rootBundle.loadString("assets/user_data.json");
       return Profile.fromJson(jsonDecode(json));
     } else {
       throw Future.error("No Profile");
-    }
+    }*/
+
+  return new Profile(realname: "realname", email: "email", city: "city");
   }
   
 
