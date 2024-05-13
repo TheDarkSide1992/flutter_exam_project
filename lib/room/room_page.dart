@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/room/room_temperature.dart';
 import 'package:flutter_exam_project/utils/data_source.dart';
 
 class RoomPage extends StatelessWidget{
@@ -68,7 +69,7 @@ class _RoomDataView extends State<RoomDataView>
         onPageChanged: _handlePageViewChanged,
         children: [
           Center(
-            child: Text('Temprature Page', style: TextStyle(color: Colors.purple, fontSize: 24)),
+            child: RoomTemperature(),
           ),
           Center(
             child: Text('Humidity Page', style: TextStyle(color: Colors.purple, fontSize: 24)),
