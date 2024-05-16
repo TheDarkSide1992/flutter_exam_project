@@ -24,6 +24,7 @@ class RoomTemperature extends StatelessWidget{
           child: SfCartesianChart(
             primaryXAxis: CategoryAxis(),
             series: <CartesianSeries>[
+              //TODO insert list of data from db
               LineSeries<ChartData, String>(dataSource: [
                 ChartData('07/05', 22),
                 ChartData('08/05', 23),

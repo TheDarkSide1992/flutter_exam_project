@@ -24,6 +24,7 @@ class RoomAirQuality extends StatelessWidget{
             child: SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               series: <CartesianSeries>[
+                //TODO insert list of data from db
                 LineSeries<ChartData, String>(dataSource: [
                   ChartData('07/05', 1.1),
                   ChartData('08/05', 1.8),

@@ -80,6 +80,7 @@ class _RoomDataView extends State<RoomDataView>
             child: RoomAirQuality(),
           ),
           Center(
+            //TODO Insert control page
             child: Text('Control page', style: TextStyle(color: Colors.purple, fontSize: 24)),
           ),
         ],
