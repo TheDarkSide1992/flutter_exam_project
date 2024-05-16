@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
 import 'package:flutter_exam_project/room/room_airquality.dart';
+import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
 import 'package:flutter_exam_project/room/room_temperature.dart';
 import 'package:flutter_exam_project/utils/data_source.dart';
 
-class RoomPage extends StatelessWidget{
+import '../app_drawer.dart';
+
+class RoomPage extends StatelessWidget {
   const RoomPage(this.roomId, {super.key});
 
   final SimpleDataDTO roomId;
 
-
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(roomId.roomName!),
@@ -24,25 +25,24 @@ class RoomPage extends StatelessWidget{
       body: const RoomDataView(),
 
       /**FutureBuilder<RoomTempChartData>(
-        future: context.read<DataSource>().getSimpleData(roomId),
-        builder: (context, snapshot){
+          future: context.read<DataSource>().getSimpleData(roomId),
+          builder: (context, snapshot){
           if(!snapshot.hasData) return const CircularProgressIndicator();
-        },
+          },
 
-      ),*/
+          ),*/
     );
   }
 }
 
-class RoomDataView extends StatefulWidget{
+class RoomDataView extends StatefulWidget {
   const RoomDataView({super.key});
 
   @override
   State<RoomDataView> createState() => _RoomDataView();
 }
 
-class _RoomDataView extends State<RoomDataView>
-    with TickerProviderStateMixin {
+class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   late PageController _pageViewController;
   late TabController _tabController;
   int _currentPageIndex = 0;
@@ -53,6 +53,7 @@ class _RoomDataView extends State<RoomDataView>
     _pageViewController = PageController();
     _tabController = TabController(length: 4, vsync: this);
   }
+
   @override
   void dispose() {
     super.dispose();
@@ -62,38 +63,44 @@ class _RoomDataView extends State<RoomDataView>
 
   @override
   Widget build(BuildContext context) {
-    theme: Theme.of(context);
-    return Stack(
-        alignment: Alignment.bottomCenter,
-        children: <Widget>[
-        PageView(
-        controller: _pageViewController,
-        onPageChanged: _handlePageViewChanged,
-        children: [
-          Center(
-            child: RoomTemperature(),
-          ),
-          Center(
-            child: RoomHumidity(),
-          ),
-          Center(
-            child: RoomAirQuality(),
-          ),
-          Center(
-            //TODO Insert control page
-            child: Text('Control page', style: TextStyle(color: Colors.purple, fontSize: 24)),
-          ),
-        ],
-    ),
-    PageIndicator(
-      tabController: _tabController,
-      currentPageIndex: _currentPageIndex,
-      onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-      isOnDesktopAndWeb: _isOnDesktopAndWeb,
-    ),
-        ],
+    theme:
+    Theme.of(context);
+    return Scaffold(
+      body: Center(
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: <Widget>[
+            PageView(
+              controller: _pageViewController,
+              onPageChanged: _handlePageViewChanged,
+              children: [
+                Center(
+                  child: RoomTemperature(),
+                ),
+                Center(
+                  child: RoomHumidity(),
+                ),
+                Center(
+                  child: RoomAirQuality(),
+                ),
+                Center(
+                  //TODO Insert control page
+                  child: RoomControl(),
+                ),
+              ],
+            ),
+            PageIndicator(
+              tabController: _tabController,
+              currentPageIndex: _currentPageIndex,
+              onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+              isOnDesktopAndWeb: _isOnDesktopAndWeb,
+            ),
+          ],
+        ),
+      ),
     );
   }
+
   void _handlePageViewChanged(int currentPageIndex) {
     if (!_isOnDesktopAndWeb) {
       return;

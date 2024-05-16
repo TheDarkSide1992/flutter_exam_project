@@ -14,11 +14,6 @@ class RoomHumidity extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Humidity'),
-      ),
-      drawer: const AppDrawer(),
       body: Center(
         child: Container(
             child: SfCartesianChart(
