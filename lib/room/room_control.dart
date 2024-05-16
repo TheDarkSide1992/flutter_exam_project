@@ -19,13 +19,10 @@ class _RoomControlState extends State<RoomControl> {
   void _setDisplayStatus() async {
     if (!isOn) {
       deviceStatus = "Window is closed";
-      currentPowerIcon = Icons.power_off;
+      currentPowerIcon = Icons.block;
     } else if (isOn) {
       deviceStatus = "Window is Open";
-      currentPowerIcon = Icons.power;
-    } else {
-      deviceStatus = "Error occurred";
-      currentPowerIcon = Icons.adb;
+      currentPowerIcon = Icons.air;
     }
   }
 
@@ -46,40 +43,32 @@ class _RoomControlState extends State<RoomControl> {
             alignment: Alignment.topCenter,
             child: Column(
               children: [
-                SizedBox(height: 15),
+                SizedBox(height: 50),
                 Text('Controller page',
                     style: TextStyle(color: Colors.purple, fontSize: 24)),
                 SizedBox(height: 25),
-
                 SizedBox(
-                  height: 150.0,
-                  width: 150.0,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    fit: StackFit.expand,
+                  height: 200.0,
+                  width: 180.0,
+                  child: Column(
                     children: <Widget>[
                       Text(
                         '${deviceStatus}',
                         style: TextStyle(
                             fontStyle: FontStyle.normal,
-                            fontSize: 14,
-                            color: Theme
-                                .of(context)
-                                .colorScheme
-                                .inversePrimary),
+                            fontSize: 18,
+                            color: Theme.of(context).colorScheme.primary),
                       ),
+                    SizedBox(height: 15),
                       Icon(
                         currentPowerIcon,
                         size: 145,
-                        color: Theme
-                            .of(context)
-                            .colorScheme
-                            .inversePrimary,
+                        color: Theme.of(context).colorScheme.inversePrimary,
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 65),
                 new GestureDetector(
                   onTap: () {
                     setState(() {
@@ -92,42 +81,31 @@ class _RoomControlState extends State<RoomControl> {
                     margin: new EdgeInsets.all(5.0),
                     padding: EdgeInsets.all(15.0),
                     decoration: BoxDecoration(
-                        color: Theme
-                            .of(context)
-                            .colorScheme
-                            .primary,
+                        color: Theme.of(context).colorScheme.primary,
                         border: Border.all(
-                          color: Theme
-                              .of(context)
-                              .colorScheme
-                              .inversePrimary,
+                          color: Theme.of(context).colorScheme.inversePrimary,
                         ),
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10))),
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Change Stere',
+                          'Change Status',
                           style: TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 12,
-                              color: Theme
-                                  .of(context)
-                                  .colorScheme
-                                  .inversePrimary),
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary),
                         ),
                         Icon(
-                          Icons.adb_outlined,
+                          Icons.power_settings_new,
                           size: 25,
-                          color: Theme
-                              .of(context)
-                              .colorScheme
-                              .inversePrimary,
+                          color: Theme.of(context).colorScheme.inversePrimary,
                         ),
                       ],
                     ),
@@ -138,5 +116,4 @@ class _RoomControlState extends State<RoomControl> {
       ),
     );
   }
-
 }
