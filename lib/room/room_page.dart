@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/room/room_airquality.dart';
+import 'package:flutter_exam_project/room/room_humidity.dart';
 import 'package:flutter_exam_project/room/room_temperature.dart';
 import 'package:flutter_exam_project/utils/data_source.dart';
 
@@ -72,10 +74,10 @@ class _RoomDataView extends State<RoomDataView>
             child: RoomTemperature(),
           ),
           Center(
-            child: Text('Humidity Page', style: TextStyle(color: Colors.purple, fontSize: 24)),
+            child: RoomHumidity(),
           ),
           Center(
-            child: Text('Air-quality Page', style: TextStyle(color: Colors.purple, fontSize: 24)),
+            child: RoomAirQuality(),
           ),
           Center(
             child: Text('Control page', style: TextStyle(color: Colors.purple, fontSize: 24)),
