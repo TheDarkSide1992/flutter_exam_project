@@ -18,7 +18,7 @@ class DeviceCard extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  RoomPage(device)), //TODO Change this to relevant widget
+                  RoomPage(device)),
         );
       },
       child: Container(
