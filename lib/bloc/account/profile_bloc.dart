@@ -59,6 +59,7 @@ class ProfileBloc extends Bloc<BaseEvent, ProfileState> {
 
   FutureOr<void> _onServerLogsInUser(ServerLogsInUser event, Emitter<ProfileState> emit) {
     add(ClientWantsAccountInfoDto(eventType: ClientWantsAccountInfoDto.name));
+    _jwt = event.jwt;
   }
 
   FutureOr<void> _onServerSendsAccountData(ServerSendsAccountData event, Emitter<ProfileState> emit) {
