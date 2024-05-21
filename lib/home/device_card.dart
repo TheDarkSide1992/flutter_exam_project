@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 
 import '../account/account_page.dart';
 import '../room/room_page.dart';
@@ -7,7 +7,7 @@ import '../room/room_page.dart';
 class DeviceCard extends StatelessWidget {
   const DeviceCard(this.device, {super.key});
 
-  final SimpleDataDTO device;
+  final BasicRoomStatus device;
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +64,10 @@ class DeviceCard extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     Text(
-                      '${device.date}',
+                      'Window: ${device.basicWindowStatus}',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
-                          fontSize: 14,
+                          fontSize: 18,
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                   ],
@@ -80,21 +80,21 @@ class DeviceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Temperature : ${device.temp} C',
+                      'Temperature : ${device.basicCurrentTemp} C',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     Text(
-                      'Humidity : ${device.hum} %',
+                      'Humidity : ${device.basicCurrentHum} %',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 14,
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     Text(
-                      'Air-quality : ${device.airquality} ppm',
+                      'Air-quality : ${device.basicCurrentAq} ppm',
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 14,

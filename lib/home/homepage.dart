@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
-import '../bloc/device/device_cubit.dart';
+import '../bloc/device/device_bloc.dart';
 import '../bloc/device/device_state.dart';
 import 'device_card.dart';
 
@@ -19,7 +19,7 @@ class _RoomOverviewAppState extends State<RoomOverviewApp> {
   @override
   initState() {
     super.initState();
-    context.read<DeviceCubit>().getDeviceData();
+    context.read<DeviceBloc>().getDeviceData();
   }
 
   @override
@@ -35,7 +35,7 @@ class _RoomOverviewAppState extends State<RoomOverviewApp> {
             title: Text('HOME'),
           ),
           drawer: const AppDrawer(),
-          body: BlocConsumer<DeviceCubit, DeviceState>(
+          body: BlocConsumer<DeviceBloc, DeviceState>(
               listener: (context, state) {
             if (state is DeviceSigOut || state is DataError) {
               context.showErrorSnackBar(message: "An error occurred");

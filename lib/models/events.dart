@@ -1,3 +1,4 @@
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'events.g.dart';
@@ -19,6 +20,7 @@ abstract class ServerEvent extends BaseEvent {
     return switch (type) {
       ServerLogsInUser.name => ServerLogsInUser.fromJson(event),
       ServerLogsoutUser.name => ServerLogsoutUser.fromJson(event),
+      ServerReturnsBasicRoomStatus.name => ServerReturnsBasicRoomStatus.fromJson(event),
       ServerSendsAccountData.name =>
           ServerSendsAccountData.fromJson(event),
       ServerAuthenticatesUserFromJwt.name =>
@@ -83,6 +85,19 @@ class ClientWantsToAuthenticateWithJwtDto extends ClientEvent
       _$ClientWantsToAuthenticateWithJwtDtoFromJson(json);
 }
 
+@freezed
+class ClientWantsBasicRoomStatusDto extends ClientEvent
+    with _$ClientWantsBasicRoomStatusDto {
+  static const String name = "ClientWantsBasicRoomStatusDto";
+  const factory ClientWantsBasicRoomStatusDto({
+    required String eventType,
+  }) = _ClientWantsBasicRoomStatusDto;
+
+  factory ClientWantsBasicRoomStatusDto.fromJson(
+      Map<String, Object?> json) =>
+      _$ClientWantsBasicRoomStatusDtoFromJson(json);
+}
+
 //TODO implement call for rooms and device once backend is made
 
 
@@ -142,5 +157,19 @@ class ServerAuthenticatesUserFromJwt extends ServerEvent
       _$ServerAuthenticatesUserFromJwtFromJson(json);
 }
 
+
+@freezed
+class ServerReturnsBasicRoomStatus extends ServerEvent
+    with _$ServerReturnsBasicRoomStatus {
+  static const String name = "ServerReturnsBasicRoomStatus";
+  const factory ServerReturnsBasicRoomStatus({
+    required String eventType,
+    required List<BasicRoomStatus> basicRoomListData,
+  }) = _ServerReturnsBasicRoomStatus;
+
+  factory ServerReturnsBasicRoomStatus.fromJson(
+      Map<String, Object?> json) =>
+      _$ServerReturnsBasicRoomStatusFromJson(json);
+}
 //TODO implement call for Server responds rooms and device once backend is made
 

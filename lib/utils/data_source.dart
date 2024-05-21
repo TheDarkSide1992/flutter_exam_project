@@ -2,16 +2,16 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 import 'package:flutter_exam_project/models/profile_model.dart';
 
 
 abstract class DataSource {
-  Future<List<SimpleDataDTO>> getSimpleData();
+  Future<List<BasicRoomStatus>> getSimpleData();
   Future<Profile> getUserData(String email, String password);
 
 }
-
+/*
 class FakeDataSource implements DataSource {
   @override
   Future<List<SimpleDataDTO>> getSimpleData() async {
@@ -34,4 +34,4 @@ class FakeDataSource implements DataSource {
   }
   
 
-}
+}*/

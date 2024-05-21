@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 import 'package:flutter_exam_project/room/room_airquality.dart';
 import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
@@ -13,7 +13,7 @@ import '../app_drawer.dart';
 class RoomPage extends StatelessWidget {
   const RoomPage(this.roomId, {super.key});
 
-  final SimpleDataDTO roomId;
+  final BasicRoomStatus roomId;
 
   @override
   Widget build(BuildContext context) {
