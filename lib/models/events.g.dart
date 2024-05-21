@@ -61,6 +61,18 @@ Map<String, dynamic> _$$ClientWantsToAuthenticateWithJwtDtoImplToJson(
       'jwt': instance.jwt,
     };
 
+_$ClientWantsBasicRoomStatusDtoImpl
+    _$$ClientWantsBasicRoomStatusDtoImplFromJson(Map<String, dynamic> json) =>
+        _$ClientWantsBasicRoomStatusDtoImpl(
+          eventType: json['eventType'] as String,
+        );
+
+Map<String, dynamic> _$$ClientWantsBasicRoomStatusDtoImplToJson(
+        _$ClientWantsBasicRoomStatusDtoImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+    };
+
 _$ServerLogsInUserImpl _$$ServerLogsInUserImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerLogsInUserImpl(
@@ -115,4 +127,20 @@ Map<String, dynamic> _$$ServerAuthenticatesUserFromJwtImplToJson(
         _$ServerAuthenticatesUserFromJwtImpl instance) =>
     <String, dynamic>{
       'eventType': instance.eventType,
+    };
+
+_$ServerReturnsBasicRoomStatusImpl _$$ServerReturnsBasicRoomStatusImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ServerReturnsBasicRoomStatusImpl(
+      eventType: json['eventType'] as String,
+      basicRoomListData: (json['basicRoomListData'] as List<dynamic>)
+          .map((e) => BasicRoomStatus.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$ServerReturnsBasicRoomStatusImplToJson(
+        _$ServerReturnsBasicRoomStatusImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'basicRoomListData': instance.basicRoomListData,
     };

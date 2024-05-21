@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 import 'package:flutter_exam_project/room/room_airquality.dart';
 import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
@@ -11,18 +11,18 @@ import 'package:flutter_exam_project/utils/data_source.dart';
 import '../app_drawer.dart';
 
 class RoomPage extends StatelessWidget {
-  const RoomPage(this.roomId, {super.key});
+  const RoomPage(this.device, {super.key,});
 
-  final SimpleDataDTO roomId;
+  final BasicRoomStatus device;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(roomId.roomName!),
+        title: Text(device.roomName!),
       ),
-      body: const RoomDataView(),
+      body: RoomDataView(device),
 
       /**FutureBuilder<RoomTempChartData>(
           future: context.read<DataSource>().getSimpleData(roomId),
@@ -36,16 +36,24 @@ class RoomPage extends StatelessWidget {
 }
 
 class RoomDataView extends StatefulWidget {
-  const RoomDataView({super.key});
+  RoomDataView(BasicRoomStatus device, {super.key}) {
+    this.device = device;
+  }
 
+  late BasicRoomStatus device;
   @override
-  State<RoomDataView> createState() => _RoomDataView();
+  State<RoomDataView> createState() => _RoomDataView(this.device);
 }
 
 class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   late PageController _pageViewController;
   late TabController _tabController;
   int _currentPageIndex = 0;
+  late BasicRoomStatus device;
+
+  _RoomDataView(device){
+    this.device = device;
+  }
 
   @override
   void initState() {
@@ -85,7 +93,7 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
                 ),
                 Center(
                   //TODO Insert control page
-                  child: RoomControl(),
+                  child: RoomControl(this.device),
                 ),
               ],
             ),

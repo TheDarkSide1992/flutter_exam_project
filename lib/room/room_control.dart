@@ -1,20 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_exam_project/bloc/device/device_bloc.dart';
+import 'package:flutter_exam_project/bloc/device/device_state.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../app_drawer.dart';
+import '../models/BasicRoomStatus.dart';
 
 class RoomControl extends StatefulWidget {
-  RoomControl({super.key});
+  RoomControl(this.device, {super.key});
 
+  final BasicRoomStatus device;
   @override
-  State<RoomControl> createState() => _RoomControlState();
+  State<RoomControl> createState() => _RoomControlState(this.device);
 }
 
 class _RoomControlState extends State<RoomControl> {
   late String deviceStatus;
   late IconData currentPowerIcon;
-  bool isOn = false;
+  late bool isOn;
+  late BasicRoomStatus device;
+
+
+  _RoomControlState(BasicRoomStatus device){
+    this.device = device;
+    _getStatus();
+  }
+
 
   void _setDisplayStatus() async {
     if (!isOn) {
@@ -27,18 +41,32 @@ class _RoomControlState extends State<RoomControl> {
   }
 
   void _getStatus() async {
-    isOn = false;
+    if(this.device.basicWindowStatus == "Open"){
+      isOn = true;
+    } else {
+      isOn = false;
+    }
   }
 
   void _ChangeState() async {
     this.isOn = !this.isOn;
+    //TODO make call
   }
 
   @override
   Widget build(BuildContext context) {
     _setDisplayStatus();
+
+
     return Scaffold(
-      body: Center(
+      body: BlocConsumer<DeviceBloc, DeviceState>(
+        listener: (context, state) {
+      if (state is DataError || state is DeviceSigOut) {
+        context.showErrorSnackBar(message: "Could not get device data");
+      }
+    },
+
+      builder:  (context, state) => Center(
         child: Container(
             alignment: Alignment.topCenter,
             child: Column(
@@ -113,6 +141,7 @@ class _RoomControlState extends State<RoomControl> {
                 )
               ],
             )),
+      ),
       ),
     );
   }

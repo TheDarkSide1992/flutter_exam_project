@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_exam_project/models/SimpleDataDTO.dart';
+import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 
 @immutable
 abstract class DeviceState {}
@@ -9,7 +9,7 @@ abstract class DeviceState {}
 class DeviceInitial extends DeviceState {}
 
 class DevicDataLoaded extends DeviceState {
-  final List<SimpleDataDTO>? simpleDataLoadList;
+  final List<BasicRoomStatus>? simpleDataLoadList;
 
   DevicDataLoaded({required this.simpleDataLoadList});
 }

@@ -652,6 +652,157 @@ abstract class _ClientWantsToAuthenticateWithJwtDto
       get copyWith => throw _privateConstructorUsedError;
 }
 
+ClientWantsBasicRoomStatusDto _$ClientWantsBasicRoomStatusDtoFromJson(
+    Map<String, dynamic> json) {
+  return _ClientWantsBasicRoomStatusDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ClientWantsBasicRoomStatusDto {
+  String get eventType => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientWantsBasicRoomStatusDtoCopyWith<ClientWantsBasicRoomStatusDto>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClientWantsBasicRoomStatusDtoCopyWith<$Res> {
+  factory $ClientWantsBasicRoomStatusDtoCopyWith(
+          ClientWantsBasicRoomStatusDto value,
+          $Res Function(ClientWantsBasicRoomStatusDto) then) =
+      _$ClientWantsBasicRoomStatusDtoCopyWithImpl<$Res,
+          ClientWantsBasicRoomStatusDto>;
+  @useResult
+  $Res call({String eventType});
+}
+
+/// @nodoc
+class _$ClientWantsBasicRoomStatusDtoCopyWithImpl<$Res,
+        $Val extends ClientWantsBasicRoomStatusDto>
+    implements $ClientWantsBasicRoomStatusDtoCopyWith<$Res> {
+  _$ClientWantsBasicRoomStatusDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ClientWantsBasicRoomStatusDtoImplCopyWith<$Res>
+    implements $ClientWantsBasicRoomStatusDtoCopyWith<$Res> {
+  factory _$$ClientWantsBasicRoomStatusDtoImplCopyWith(
+          _$ClientWantsBasicRoomStatusDtoImpl value,
+          $Res Function(_$ClientWantsBasicRoomStatusDtoImpl) then) =
+      __$$ClientWantsBasicRoomStatusDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType});
+}
+
+/// @nodoc
+class __$$ClientWantsBasicRoomStatusDtoImplCopyWithImpl<$Res>
+    extends _$ClientWantsBasicRoomStatusDtoCopyWithImpl<$Res,
+        _$ClientWantsBasicRoomStatusDtoImpl>
+    implements _$$ClientWantsBasicRoomStatusDtoImplCopyWith<$Res> {
+  __$$ClientWantsBasicRoomStatusDtoImplCopyWithImpl(
+      _$ClientWantsBasicRoomStatusDtoImpl _value,
+      $Res Function(_$ClientWantsBasicRoomStatusDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+  }) {
+    return _then(_$ClientWantsBasicRoomStatusDtoImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsBasicRoomStatusDtoImpl
+    implements _ClientWantsBasicRoomStatusDto {
+  const _$ClientWantsBasicRoomStatusDtoImpl({required this.eventType});
+
+  factory _$ClientWantsBasicRoomStatusDtoImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsBasicRoomStatusDtoImplFromJson(json);
+
+  @override
+  final String eventType;
+
+  @override
+  String toString() {
+    return 'ClientWantsBasicRoomStatusDto(eventType: $eventType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsBasicRoomStatusDtoImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsBasicRoomStatusDtoImplCopyWith<
+          _$ClientWantsBasicRoomStatusDtoImpl>
+      get copyWith => __$$ClientWantsBasicRoomStatusDtoImplCopyWithImpl<
+          _$ClientWantsBasicRoomStatusDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsBasicRoomStatusDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ClientWantsBasicRoomStatusDto
+    implements ClientWantsBasicRoomStatusDto {
+  const factory _ClientWantsBasicRoomStatusDto(
+      {required final String eventType}) = _$ClientWantsBasicRoomStatusDtoImpl;
+
+  factory _ClientWantsBasicRoomStatusDto.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsBasicRoomStatusDtoImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  @JsonKey(ignore: true)
+  _$$ClientWantsBasicRoomStatusDtoImplCopyWith<
+          _$ClientWantsBasicRoomStatusDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 ServerLogsInUser _$ServerLogsInUserFromJson(Map<String, dynamic> json) {
   return _ServerLogsInUser.fromJson(json);
 }
@@ -1296,5 +1447,186 @@ abstract class _ServerAuthenticatesUserFromJwt
   @JsonKey(ignore: true)
   _$$ServerAuthenticatesUserFromJwtImplCopyWith<
           _$ServerAuthenticatesUserFromJwtImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+ServerReturnsBasicRoomStatus _$ServerReturnsBasicRoomStatusFromJson(
+    Map<String, dynamic> json) {
+  return _ServerReturnsBasicRoomStatus.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServerReturnsBasicRoomStatus {
+  String get eventType => throw _privateConstructorUsedError;
+  List<BasicRoomStatus> get basicRoomListData =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ServerReturnsBasicRoomStatusCopyWith<ServerReturnsBasicRoomStatus>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServerReturnsBasicRoomStatusCopyWith<$Res> {
+  factory $ServerReturnsBasicRoomStatusCopyWith(
+          ServerReturnsBasicRoomStatus value,
+          $Res Function(ServerReturnsBasicRoomStatus) then) =
+      _$ServerReturnsBasicRoomStatusCopyWithImpl<$Res,
+          ServerReturnsBasicRoomStatus>;
+  @useResult
+  $Res call({String eventType, List<BasicRoomStatus> basicRoomListData});
+}
+
+/// @nodoc
+class _$ServerReturnsBasicRoomStatusCopyWithImpl<$Res,
+        $Val extends ServerReturnsBasicRoomStatus>
+    implements $ServerReturnsBasicRoomStatusCopyWith<$Res> {
+  _$ServerReturnsBasicRoomStatusCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? basicRoomListData = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      basicRoomListData: null == basicRoomListData
+          ? _value.basicRoomListData
+          : basicRoomListData // ignore: cast_nullable_to_non_nullable
+              as List<BasicRoomStatus>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ServerReturnsBasicRoomStatusImplCopyWith<$Res>
+    implements $ServerReturnsBasicRoomStatusCopyWith<$Res> {
+  factory _$$ServerReturnsBasicRoomStatusImplCopyWith(
+          _$ServerReturnsBasicRoomStatusImpl value,
+          $Res Function(_$ServerReturnsBasicRoomStatusImpl) then) =
+      __$$ServerReturnsBasicRoomStatusImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, List<BasicRoomStatus> basicRoomListData});
+}
+
+/// @nodoc
+class __$$ServerReturnsBasicRoomStatusImplCopyWithImpl<$Res>
+    extends _$ServerReturnsBasicRoomStatusCopyWithImpl<$Res,
+        _$ServerReturnsBasicRoomStatusImpl>
+    implements _$$ServerReturnsBasicRoomStatusImplCopyWith<$Res> {
+  __$$ServerReturnsBasicRoomStatusImplCopyWithImpl(
+      _$ServerReturnsBasicRoomStatusImpl _value,
+      $Res Function(_$ServerReturnsBasicRoomStatusImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? basicRoomListData = null,
+  }) {
+    return _then(_$ServerReturnsBasicRoomStatusImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      basicRoomListData: null == basicRoomListData
+          ? _value._basicRoomListData
+          : basicRoomListData // ignore: cast_nullable_to_non_nullable
+              as List<BasicRoomStatus>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerReturnsBasicRoomStatusImpl
+    implements _ServerReturnsBasicRoomStatus {
+  const _$ServerReturnsBasicRoomStatusImpl(
+      {required this.eventType,
+      required final List<BasicRoomStatus> basicRoomListData})
+      : _basicRoomListData = basicRoomListData;
+
+  factory _$ServerReturnsBasicRoomStatusImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerReturnsBasicRoomStatusImplFromJson(json);
+
+  @override
+  final String eventType;
+  final List<BasicRoomStatus> _basicRoomListData;
+  @override
+  List<BasicRoomStatus> get basicRoomListData {
+    if (_basicRoomListData is EqualUnmodifiableListView)
+      return _basicRoomListData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_basicRoomListData);
+  }
+
+  @override
+  String toString() {
+    return 'ServerReturnsBasicRoomStatus(eventType: $eventType, basicRoomListData: $basicRoomListData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerReturnsBasicRoomStatusImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            const DeepCollectionEquality()
+                .equals(other._basicRoomListData, _basicRoomListData));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType,
+      const DeepCollectionEquality().hash(_basicRoomListData));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerReturnsBasicRoomStatusImplCopyWith<
+          _$ServerReturnsBasicRoomStatusImpl>
+      get copyWith => __$$ServerReturnsBasicRoomStatusImplCopyWithImpl<
+          _$ServerReturnsBasicRoomStatusImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerReturnsBasicRoomStatusImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServerReturnsBasicRoomStatus
+    implements ServerReturnsBasicRoomStatus {
+  const factory _ServerReturnsBasicRoomStatus(
+          {required final String eventType,
+          required final List<BasicRoomStatus> basicRoomListData}) =
+      _$ServerReturnsBasicRoomStatusImpl;
+
+  factory _ServerReturnsBasicRoomStatus.fromJson(Map<String, dynamic> json) =
+      _$ServerReturnsBasicRoomStatusImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  List<BasicRoomStatus> get basicRoomListData;
+  @override
+  @JsonKey(ignore: true)
+  _$$ServerReturnsBasicRoomStatusImplCopyWith<
+          _$ServerReturnsBasicRoomStatusImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
