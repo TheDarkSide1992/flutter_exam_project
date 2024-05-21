@@ -45,7 +45,6 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   }
 
   Future<void> getDeviceData() async {
-    print("Getting data");
     add(ClientWantsBasicRoomStatusDto(
         eventType: ClientWantsBasicRoomStatusDto.name));
   }
@@ -57,9 +56,6 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   FutureOr<void> _onServerReturnsBasicRoomStatus(
       ServerReturnsBasicRoomStatus event, Emitter<DeviceState> emit) {
     List<BasicRoomStatus> data = event.basicRoomListData;
-
-    print(data.length); //TODO remowe later
-    print("adding list to state");
 
     emit(DevicDataLoaded(simpleDataLoadList: data));
   }
