@@ -50,6 +50,7 @@ class _RoomControlState extends State<RoomControl> {
 
   void _ChangeState() async {
     this.isOn = !this.isOn;
+    context.read<DeviceBloc>().OpenCloseDevice(this.device.roomId!);
     //TODO make call
   }
 

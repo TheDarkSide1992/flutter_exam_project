@@ -53,6 +53,10 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
     emit(DeviceSigOut());
   }
 
+  Future<void> OpenCloseDevice(int deviceId) async{
+    print(deviceId);
+  }
+
   FutureOr<void> _onServerReturnsBasicRoomStatus(
       ServerReturnsBasicRoomStatus event, Emitter<DeviceState> emit) {
     List<BasicRoomStatus> data = event.basicRoomListData;
