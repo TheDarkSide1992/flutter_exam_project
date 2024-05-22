@@ -13,7 +13,8 @@ import '../../utils/data_source.dart';
 class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   DeviceBloc(this.wsChannel) : super(DeviceInitial()) {
     on<ServerReturnsBasicRoomStatus>(_onServerReturnsBasicRoomStatus);
-    on<ClientEvent>(_onClientEvent);
+    on<ServerReturnsNewMotorStatusForAllMotorsInRoom>(_onServerReturnsNewMotorStatusForAllMotorsInRoom);
+    on<ClientEvent>(_onClientEvent); 
 
     _channelSubscription =
         wsChannel.stream.map((event) => jsonDecode(event)).map((event) {
@@ -53,8 +54,8 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
     emit(DeviceSigOut());
   }
 
-  Future<void> OpenCloseDevice(int deviceId) async{
-    print(deviceId);
+  Future<void> OpenCloseDevice(int roomId, bool openClose) async{
+    add(ClientWantsToOpenOrCloseAllWindowsInRoomDto(eventType: ClientWantsToOpenOrCloseAllWindowsInRoomDto.name, id: roomId, open: openClose));
   }
 
   FutureOr<void> _onServerReturnsBasicRoomStatus(
@@ -62,5 +63,16 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
     List<BasicRoomStatus> data = event.basicRoomListData;
 
     emit(DevicDataLoaded(simpleDataLoadList: data));
+  }
+
+  FutureOr<void> _onServerReturnsNewMotorStatusForAllMotorsInRoom(ServerReturnsNewMotorStatusForAllMotorsInRoom event, Emitter<DeviceState> emit) {
+    late bool isOpen;
+    print(event.message);
+    if(event.message == "All windows are enabled") {
+      isOpen = true;
+    } else{
+      isOpen = false;
+    }
+    emit(DeviceWindowStatus(open: isOpen, motors: event.motors));
   }
 }

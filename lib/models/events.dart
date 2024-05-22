@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
+import 'package:flutter_exam_project/models/MotorModel.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'events.g.dart';
@@ -25,6 +28,7 @@ abstract class ServerEvent extends BaseEvent {
           ServerSendsAccountData.fromJson(event),
       ServerAuthenticatesUserFromJwt.name =>
           ServerAuthenticatesUserFromJwt.fromJson(event),
+      ServerReturnsNewMotorStatusForAllMotorsInRoom.name => ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(event),
       _ => throw "Unknown event type: $type in $event"
     };
   }
@@ -96,6 +100,21 @@ class ClientWantsBasicRoomStatusDto extends ClientEvent
   factory ClientWantsBasicRoomStatusDto.fromJson(
       Map<String, Object?> json) =>
       _$ClientWantsBasicRoomStatusDtoFromJson(json);
+}
+
+@freezed
+class ClientWantsToOpenOrCloseAllWindowsInRoomDto extends ClientEvent
+    with _$ClientWantsToOpenOrCloseAllWindowsInRoomDto {
+  static const String name = "ClientWantsToOpenOrCloseAllWindowsInRoomDto";
+  const factory ClientWantsToOpenOrCloseAllWindowsInRoomDto({
+    required String eventType,
+    required int id,
+    required bool open,
+  }) = _ClientWantsToOpenOrCloseAllWindowsInRoomDto;
+
+  factory ClientWantsToOpenOrCloseAllWindowsInRoomDto.fromJson(
+      Map<String, Object?> json) =>
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoFromJson(json);
 }
 
 //TODO implement call for rooms and device once backend is made
@@ -170,6 +189,21 @@ class ServerReturnsBasicRoomStatus extends ServerEvent
   factory ServerReturnsBasicRoomStatus.fromJson(
       Map<String, Object?> json) =>
       _$ServerReturnsBasicRoomStatusFromJson(json);
+}
+
+@freezed
+class ServerReturnsNewMotorStatusForAllMotorsInRoom extends ServerEvent
+    with _$ServerReturnsNewMotorStatusForAllMotorsInRoom {
+  static const String name = "ServerReturnsNewMotorStatusForAllMotorsInRoom";
+  const factory ServerReturnsNewMotorStatusForAllMotorsInRoom({
+    required String eventType,
+    required List<MotorModel> motors,
+    required String message,
+  }) = _ServerReturnsNewMotorStatusForAllMotorsInRoom;
+
+  factory ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(
+      Map<String, Object?> json) =>
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomFromJson(json);
 }
 //TODO implement call for Server responds rooms and device once backend is made
 
