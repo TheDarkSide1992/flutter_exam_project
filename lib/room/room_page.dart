@@ -6,12 +6,17 @@ import 'package:flutter_exam_project/room/room_airquality.dart';
 import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
 import 'package:flutter_exam_project/room/room_temperature.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:flutter_exam_project/utils/data_source.dart';
 
 import '../app_drawer.dart';
+import '../bloc/device/device_bloc.dart';
+import '../bloc/device/device_state.dart';
 
 class RoomPage extends StatelessWidget {
-  const RoomPage(this.device, {super.key,});
+  const RoomPage(this.device, {
+    super.key,
+  });
 
   final BasicRoomStatus device;
 
@@ -19,10 +24,23 @@ class RoomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .inversePrimary,
         title: Text(device.roomName!),
       ),
-      body: RoomDataView(device),
+      body: BlocConsumer<DeviceBloc, DeviceState>(
+        listener: (context, state) {
+          if (state is DataError || state is DeviceSigOut) {
+            context.showErrorSnackBar(message: "Could not get device data");
+          } else if (state is DetailedRoom) {
+            this.device.roomId = state.roomId;
+            this.device.roomName = state.name;
+          }
+        },
+        builder: (context, state) => RoomDataView(device),
+      ),
 
       /**FutureBuilder<RoomTempChartData>(
           future: context.read<DataSource>().getSimpleData(roomId),
@@ -41,6 +59,7 @@ class RoomDataView extends StatefulWidget {
   }
 
   late BasicRoomStatus device;
+
   @override
   State<RoomDataView> createState() => _RoomDataView(this.device);
 }
@@ -51,7 +70,7 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   int _currentPageIndex = 0;
   late BasicRoomStatus device;
 
-  _RoomDataView(device){
+  _RoomDataView(device) {
     this.device = device;
   }
 
@@ -69,10 +88,13 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
+  void _getDetailedRoom(){
+    context.read<DeviceBloc>().getDetailedRoom(device.roomId!);
+  }
+
   @override
   Widget build(BuildContext context) {
-    theme:
-    Theme.of(context);
+    _getDetailedRoom();
     return Scaffold(
       body: Center(
         child: Stack(
@@ -172,7 +194,9 @@ class PageIndicator extends StatelessWidget {
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final ColorScheme colorScheme = Theme
+        .of(context)
+        .colorScheme;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

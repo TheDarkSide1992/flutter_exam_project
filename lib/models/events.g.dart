@@ -73,6 +73,37 @@ Map<String, dynamic> _$$ClientWantsBasicRoomStatusDtoImplToJson(
       'eventType': instance.eventType,
     };
 
+_$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl
+    _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplFromJson(
+            Map<String, dynamic> json) =>
+        _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl(
+          eventType: json['eventType'] as String,
+          id: (json['id'] as num).toInt(),
+          open: json['open'] as bool,
+        );
+
+Map<String, dynamic> _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplToJson(
+        _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'id': instance.id,
+      'open': instance.open,
+    };
+
+_$ClientWantsDetailedRoomDtoImpl _$$ClientWantsDetailedRoomDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ClientWantsDetailedRoomDtoImpl(
+      eventType: json['eventType'] as String,
+      roomId: (json['roomId'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$$ClientWantsDetailedRoomDtoImplToJson(
+        _$ClientWantsDetailedRoomDtoImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'roomId': instance.roomId,
+    };
+
 _$ServerLogsInUserImpl _$$ServerLogsInUserImplFromJson(
         Map<String, dynamic> json) =>
     _$ServerLogsInUserImpl(
@@ -143,4 +174,38 @@ Map<String, dynamic> _$$ServerReturnsBasicRoomStatusImplToJson(
     <String, dynamic>{
       'eventType': instance.eventType,
       'basicRoomListData': instance.basicRoomListData,
+    };
+
+_$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl
+    _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplFromJson(
+            Map<String, dynamic> json) =>
+        _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl(
+          eventType: json['eventType'] as String,
+          motors: (json['motors'] as List<dynamic>)
+              .map((e) => MotorModel.fromJson(e as Map<String, dynamic>))
+              .toList(),
+          message: json['message'] as String,
+        );
+
+Map<String, dynamic> _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplToJson(
+        _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'motors': instance.motors,
+      'message': instance.message,
+    };
+
+_$ServerReturnsDetailedRoomToUserImpl
+    _$$ServerReturnsDetailedRoomToUserImplFromJson(Map<String, dynamic> json) =>
+        _$ServerReturnsDetailedRoomToUserImpl(
+          eventType: json['eventType'] as String,
+          room:
+              DetailedRoomModel.fromJson(json['room'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$$ServerReturnsDetailedRoomToUserImplToJson(
+        _$ServerReturnsDetailedRoomToUserImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'room': instance.room,
     };

@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
+import 'package:flutter_exam_project/models/DetailedRoomModel.dart';
+import 'package:flutter_exam_project/models/MotorModel.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'events.g.dart';
@@ -25,6 +29,8 @@ abstract class ServerEvent extends BaseEvent {
           ServerSendsAccountData.fromJson(event),
       ServerAuthenticatesUserFromJwt.name =>
           ServerAuthenticatesUserFromJwt.fromJson(event),
+      ServerReturnsDetailedRoomToUser.name => ServerReturnsDetailedRoomToUser.fromJson(event),
+      ServerReturnsNewMotorStatusForAllMotorsInRoom.name => ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(event),
       _ => throw "Unknown event type: $type in $event"
     };
   }
@@ -96,6 +102,35 @@ class ClientWantsBasicRoomStatusDto extends ClientEvent
   factory ClientWantsBasicRoomStatusDto.fromJson(
       Map<String, Object?> json) =>
       _$ClientWantsBasicRoomStatusDtoFromJson(json);
+}
+
+@freezed
+class ClientWantsToOpenOrCloseAllWindowsInRoomDto extends ClientEvent
+    with _$ClientWantsToOpenOrCloseAllWindowsInRoomDto {
+  static const String name = "ClientWantsToOpenOrCloseAllWindowsInRoomDto";
+  const factory ClientWantsToOpenOrCloseAllWindowsInRoomDto({
+    required String eventType,
+    required int id,
+    required bool open,
+  }) = _ClientWantsToOpenOrCloseAllWindowsInRoomDto;
+
+  factory ClientWantsToOpenOrCloseAllWindowsInRoomDto.fromJson(
+      Map<String, Object?> json) =>
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoFromJson(json);
+}
+
+@freezed
+class ClientWantsDetailedRoomDto extends ClientEvent
+    with _$ClientWantsDetailedRoomDto {
+  static const String name = "ClientWantsDetailedRoomDto";
+  const factory ClientWantsDetailedRoomDto({
+    required String eventType,
+    required int roomId,
+  }) = _ClientWantsDetailedRoomDto;
+
+  factory ClientWantsDetailedRoomDto.fromJson(
+      Map<String, Object?> json) =>
+      _$ClientWantsDetailedRoomDtoFromJson(json);
 }
 
 //TODO implement call for rooms and device once backend is made
@@ -171,5 +206,35 @@ class ServerReturnsBasicRoomStatus extends ServerEvent
       Map<String, Object?> json) =>
       _$ServerReturnsBasicRoomStatusFromJson(json);
 }
+
+@freezed
+class ServerReturnsNewMotorStatusForAllMotorsInRoom extends ServerEvent
+    with _$ServerReturnsNewMotorStatusForAllMotorsInRoom {
+  static const String name = "ServerReturnsNewMotorStatusForAllMotorsInRoom";
+  const factory ServerReturnsNewMotorStatusForAllMotorsInRoom({
+    required String eventType,
+    required List<MotorModel> motors,
+    required String message,
+  }) = _ServerReturnsNewMotorStatusForAllMotorsInRoom;
+
+  factory ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(
+      Map<String, Object?> json) =>
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomFromJson(json);
+}
+
+@freezed
+class ServerReturnsDetailedRoomToUser extends ServerEvent
+    with _$ServerReturnsDetailedRoomToUser {
+  static const String name = "ServerReturnsDetailedRoomToUser";
+  const factory ServerReturnsDetailedRoomToUser({
+    required String eventType,
+    required DetailedRoomModel room,
+  }) = _ServerReturnsDetailedRoomToUser;
+
+  factory ServerReturnsDetailedRoomToUser.fromJson(
+      Map<String, Object?> json) =>
+      _$ServerReturnsDetailedRoomToUserFromJson(json);
+}
+//TODO Make ServerReturnsNewMotorStatusForAllMotorsInRoom return msg
 //TODO implement call for Server responds rooms and device once backend is made
 

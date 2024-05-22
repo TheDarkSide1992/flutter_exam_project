@@ -803,6 +803,366 @@ abstract class _ClientWantsBasicRoomStatusDto
       get copyWith => throw _privateConstructorUsedError;
 }
 
+ClientWantsToOpenOrCloseAllWindowsInRoomDto
+    _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoFromJson(
+        Map<String, dynamic> json) {
+  return _ClientWantsToOpenOrCloseAllWindowsInRoomDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ClientWantsToOpenOrCloseAllWindowsInRoomDto {
+  String get eventType => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  bool get open => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWith<
+          ClientWantsToOpenOrCloseAllWindowsInRoomDto>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWith<$Res> {
+  factory $ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWith(
+          ClientWantsToOpenOrCloseAllWindowsInRoomDto value,
+          $Res Function(ClientWantsToOpenOrCloseAllWindowsInRoomDto) then) =
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWithImpl<$Res,
+          ClientWantsToOpenOrCloseAllWindowsInRoomDto>;
+  @useResult
+  $Res call({String eventType, int id, bool open});
+}
+
+/// @nodoc
+class _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWithImpl<$Res,
+        $Val extends ClientWantsToOpenOrCloseAllWindowsInRoomDto>
+    implements $ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWith<$Res> {
+  _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWithImpl(
+      this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? id = null,
+    Object? open = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      open: null == open
+          ? _value.open
+          : open // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWith<$Res>
+    implements $ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWith<$Res> {
+  factory _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWith(
+          _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl value,
+          $Res Function(_$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl)
+              then) =
+      __$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, int id, bool open});
+}
+
+/// @nodoc
+class __$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWithImpl<$Res>
+    extends _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoCopyWithImpl<$Res,
+        _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl>
+    implements
+        _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWith<$Res> {
+  __$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWithImpl(
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl _value,
+      $Res Function(_$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? id = null,
+    Object? open = null,
+  }) {
+    return _then(_$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      open: null == open
+          ? _value.open
+          : open // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl
+    implements _ClientWantsToOpenOrCloseAllWindowsInRoomDto {
+  const _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl(
+      {required this.eventType, required this.id, required this.open});
+
+  factory _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplFromJson(json);
+
+  @override
+  final String eventType;
+  @override
+  final int id;
+  @override
+  final bool open;
+
+  @override
+  String toString() {
+    return 'ClientWantsToOpenOrCloseAllWindowsInRoomDto(eventType: $eventType, id: $id, open: $open)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.open, open) || other.open == open));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType, id, open);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWith<
+          _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl>
+      get copyWith =>
+          __$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWithImpl<
+                  _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ClientWantsToOpenOrCloseAllWindowsInRoomDto
+    implements ClientWantsToOpenOrCloseAllWindowsInRoomDto {
+  const factory _ClientWantsToOpenOrCloseAllWindowsInRoomDto(
+          {required final String eventType,
+          required final int id,
+          required final bool open}) =
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl;
+
+  factory _ClientWantsToOpenOrCloseAllWindowsInRoomDto.fromJson(
+          Map<String, dynamic> json) =
+      _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  int get id;
+  @override
+  bool get open;
+  @override
+  @JsonKey(ignore: true)
+  _$$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImplCopyWith<
+          _$ClientWantsToOpenOrCloseAllWindowsInRoomDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+ClientWantsDetailedRoomDto _$ClientWantsDetailedRoomDtoFromJson(
+    Map<String, dynamic> json) {
+  return _ClientWantsDetailedRoomDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ClientWantsDetailedRoomDto {
+  String get eventType => throw _privateConstructorUsedError;
+  int get roomId => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ClientWantsDetailedRoomDtoCopyWith<ClientWantsDetailedRoomDto>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClientWantsDetailedRoomDtoCopyWith<$Res> {
+  factory $ClientWantsDetailedRoomDtoCopyWith(ClientWantsDetailedRoomDto value,
+          $Res Function(ClientWantsDetailedRoomDto) then) =
+      _$ClientWantsDetailedRoomDtoCopyWithImpl<$Res,
+          ClientWantsDetailedRoomDto>;
+  @useResult
+  $Res call({String eventType, int roomId});
+}
+
+/// @nodoc
+class _$ClientWantsDetailedRoomDtoCopyWithImpl<$Res,
+        $Val extends ClientWantsDetailedRoomDto>
+    implements $ClientWantsDetailedRoomDtoCopyWith<$Res> {
+  _$ClientWantsDetailedRoomDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? roomId = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      roomId: null == roomId
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ClientWantsDetailedRoomDtoImplCopyWith<$Res>
+    implements $ClientWantsDetailedRoomDtoCopyWith<$Res> {
+  factory _$$ClientWantsDetailedRoomDtoImplCopyWith(
+          _$ClientWantsDetailedRoomDtoImpl value,
+          $Res Function(_$ClientWantsDetailedRoomDtoImpl) then) =
+      __$$ClientWantsDetailedRoomDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, int roomId});
+}
+
+/// @nodoc
+class __$$ClientWantsDetailedRoomDtoImplCopyWithImpl<$Res>
+    extends _$ClientWantsDetailedRoomDtoCopyWithImpl<$Res,
+        _$ClientWantsDetailedRoomDtoImpl>
+    implements _$$ClientWantsDetailedRoomDtoImplCopyWith<$Res> {
+  __$$ClientWantsDetailedRoomDtoImplCopyWithImpl(
+      _$ClientWantsDetailedRoomDtoImpl _value,
+      $Res Function(_$ClientWantsDetailedRoomDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? roomId = null,
+  }) {
+    return _then(_$ClientWantsDetailedRoomDtoImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      roomId: null == roomId
+          ? _value.roomId
+          : roomId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ClientWantsDetailedRoomDtoImpl implements _ClientWantsDetailedRoomDto {
+  const _$ClientWantsDetailedRoomDtoImpl(
+      {required this.eventType, required this.roomId});
+
+  factory _$ClientWantsDetailedRoomDtoImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ClientWantsDetailedRoomDtoImplFromJson(json);
+
+  @override
+  final String eventType;
+  @override
+  final int roomId;
+
+  @override
+  String toString() {
+    return 'ClientWantsDetailedRoomDto(eventType: $eventType, roomId: $roomId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClientWantsDetailedRoomDtoImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.roomId, roomId) || other.roomId == roomId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType, roomId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClientWantsDetailedRoomDtoImplCopyWith<_$ClientWantsDetailedRoomDtoImpl>
+      get copyWith => __$$ClientWantsDetailedRoomDtoImplCopyWithImpl<
+          _$ClientWantsDetailedRoomDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ClientWantsDetailedRoomDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ClientWantsDetailedRoomDto
+    implements ClientWantsDetailedRoomDto {
+  const factory _ClientWantsDetailedRoomDto(
+      {required final String eventType,
+      required final int roomId}) = _$ClientWantsDetailedRoomDtoImpl;
+
+  factory _ClientWantsDetailedRoomDto.fromJson(Map<String, dynamic> json) =
+      _$ClientWantsDetailedRoomDtoImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  int get roomId;
+  @override
+  @JsonKey(ignore: true)
+  _$$ClientWantsDetailedRoomDtoImplCopyWith<_$ClientWantsDetailedRoomDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 ServerLogsInUser _$ServerLogsInUserFromJson(Map<String, dynamic> json) {
   return _ServerLogsInUser.fromJson(json);
 }
@@ -1628,5 +1988,381 @@ abstract class _ServerReturnsBasicRoomStatus
   @JsonKey(ignore: true)
   _$$ServerReturnsBasicRoomStatusImplCopyWith<
           _$ServerReturnsBasicRoomStatusImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+ServerReturnsNewMotorStatusForAllMotorsInRoom
+    _$ServerReturnsNewMotorStatusForAllMotorsInRoomFromJson(
+        Map<String, dynamic> json) {
+  return _ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServerReturnsNewMotorStatusForAllMotorsInRoom {
+  String get eventType => throw _privateConstructorUsedError;
+  List<MotorModel> get motors => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWith<
+          ServerReturnsNewMotorStatusForAllMotorsInRoom>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWith<$Res> {
+  factory $ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWith(
+          ServerReturnsNewMotorStatusForAllMotorsInRoom value,
+          $Res Function(ServerReturnsNewMotorStatusForAllMotorsInRoom) then) =
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWithImpl<$Res,
+          ServerReturnsNewMotorStatusForAllMotorsInRoom>;
+  @useResult
+  $Res call({String eventType, List<MotorModel> motors, String message});
+}
+
+/// @nodoc
+class _$ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWithImpl<$Res,
+        $Val extends ServerReturnsNewMotorStatusForAllMotorsInRoom>
+    implements $ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWith<$Res> {
+  _$ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWithImpl(
+      this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? motors = null,
+    Object? message = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      motors: null == motors
+          ? _value.motors
+          : motors // ignore: cast_nullable_to_non_nullable
+              as List<MotorModel>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWith<
+        $Res>
+    implements $ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWith<$Res> {
+  factory _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWith(
+          _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl value,
+          $Res Function(_$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl)
+              then) =
+      __$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, List<MotorModel> motors, String message});
+}
+
+/// @nodoc
+class __$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWithImpl<$Res>
+    extends _$ServerReturnsNewMotorStatusForAllMotorsInRoomCopyWithImpl<$Res,
+        _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl>
+    implements
+        _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWith<$Res> {
+  __$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWithImpl(
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl _value,
+      $Res Function(_$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? motors = null,
+    Object? message = null,
+  }) {
+    return _then(_$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      motors: null == motors
+          ? _value._motors
+          : motors // ignore: cast_nullable_to_non_nullable
+              as List<MotorModel>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl
+    implements _ServerReturnsNewMotorStatusForAllMotorsInRoom {
+  const _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl(
+      {required this.eventType,
+      required final List<MotorModel> motors,
+      required this.message})
+      : _motors = motors;
+
+  factory _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplFromJson(json);
+
+  @override
+  final String eventType;
+  final List<MotorModel> _motors;
+  @override
+  List<MotorModel> get motors {
+    if (_motors is EqualUnmodifiableListView) return _motors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_motors);
+  }
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ServerReturnsNewMotorStatusForAllMotorsInRoom(eventType: $eventType, motors: $motors, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            const DeepCollectionEquality().equals(other._motors, _motors) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType,
+      const DeepCollectionEquality().hash(_motors), message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWith<
+          _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl>
+      get copyWith =>
+          __$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWithImpl<
+                  _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServerReturnsNewMotorStatusForAllMotorsInRoom
+    implements ServerReturnsNewMotorStatusForAllMotorsInRoom {
+  const factory _ServerReturnsNewMotorStatusForAllMotorsInRoom(
+          {required final String eventType,
+          required final List<MotorModel> motors,
+          required final String message}) =
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl;
+
+  factory _ServerReturnsNewMotorStatusForAllMotorsInRoom.fromJson(
+          Map<String, dynamic> json) =
+      _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  List<MotorModel> get motors;
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$ServerReturnsNewMotorStatusForAllMotorsInRoomImplCopyWith<
+          _$ServerReturnsNewMotorStatusForAllMotorsInRoomImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+ServerReturnsDetailedRoomToUser _$ServerReturnsDetailedRoomToUserFromJson(
+    Map<String, dynamic> json) {
+  return _ServerReturnsDetailedRoomToUser.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServerReturnsDetailedRoomToUser {
+  String get eventType => throw _privateConstructorUsedError;
+  DetailedRoomModel get room => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ServerReturnsDetailedRoomToUserCopyWith<ServerReturnsDetailedRoomToUser>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServerReturnsDetailedRoomToUserCopyWith<$Res> {
+  factory $ServerReturnsDetailedRoomToUserCopyWith(
+          ServerReturnsDetailedRoomToUser value,
+          $Res Function(ServerReturnsDetailedRoomToUser) then) =
+      _$ServerReturnsDetailedRoomToUserCopyWithImpl<$Res,
+          ServerReturnsDetailedRoomToUser>;
+  @useResult
+  $Res call({String eventType, DetailedRoomModel room});
+}
+
+/// @nodoc
+class _$ServerReturnsDetailedRoomToUserCopyWithImpl<$Res,
+        $Val extends ServerReturnsDetailedRoomToUser>
+    implements $ServerReturnsDetailedRoomToUserCopyWith<$Res> {
+  _$ServerReturnsDetailedRoomToUserCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? room = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      room: null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as DetailedRoomModel,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ServerReturnsDetailedRoomToUserImplCopyWith<$Res>
+    implements $ServerReturnsDetailedRoomToUserCopyWith<$Res> {
+  factory _$$ServerReturnsDetailedRoomToUserImplCopyWith(
+          _$ServerReturnsDetailedRoomToUserImpl value,
+          $Res Function(_$ServerReturnsDetailedRoomToUserImpl) then) =
+      __$$ServerReturnsDetailedRoomToUserImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, DetailedRoomModel room});
+}
+
+/// @nodoc
+class __$$ServerReturnsDetailedRoomToUserImplCopyWithImpl<$Res>
+    extends _$ServerReturnsDetailedRoomToUserCopyWithImpl<$Res,
+        _$ServerReturnsDetailedRoomToUserImpl>
+    implements _$$ServerReturnsDetailedRoomToUserImplCopyWith<$Res> {
+  __$$ServerReturnsDetailedRoomToUserImplCopyWithImpl(
+      _$ServerReturnsDetailedRoomToUserImpl _value,
+      $Res Function(_$ServerReturnsDetailedRoomToUserImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? room = null,
+  }) {
+    return _then(_$ServerReturnsDetailedRoomToUserImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      room: null == room
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as DetailedRoomModel,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerReturnsDetailedRoomToUserImpl
+    implements _ServerReturnsDetailedRoomToUser {
+  const _$ServerReturnsDetailedRoomToUserImpl(
+      {required this.eventType, required this.room});
+
+  factory _$ServerReturnsDetailedRoomToUserImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerReturnsDetailedRoomToUserImplFromJson(json);
+
+  @override
+  final String eventType;
+  @override
+  final DetailedRoomModel room;
+
+  @override
+  String toString() {
+    return 'ServerReturnsDetailedRoomToUser(eventType: $eventType, room: $room)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerReturnsDetailedRoomToUserImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.room, room) || other.room == room));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType, room);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerReturnsDetailedRoomToUserImplCopyWith<
+          _$ServerReturnsDetailedRoomToUserImpl>
+      get copyWith => __$$ServerReturnsDetailedRoomToUserImplCopyWithImpl<
+          _$ServerReturnsDetailedRoomToUserImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerReturnsDetailedRoomToUserImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServerReturnsDetailedRoomToUser
+    implements ServerReturnsDetailedRoomToUser {
+  const factory _ServerReturnsDetailedRoomToUser(
+          {required final String eventType,
+          required final DetailedRoomModel room}) =
+      _$ServerReturnsDetailedRoomToUserImpl;
+
+  factory _ServerReturnsDetailedRoomToUser.fromJson(Map<String, dynamic> json) =
+      _$ServerReturnsDetailedRoomToUserImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  DetailedRoomModel get room;
+  @override
+  @JsonKey(ignore: true)
+  _$$ServerReturnsDetailedRoomToUserImplCopyWith<
+          _$ServerReturnsDetailedRoomToUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
