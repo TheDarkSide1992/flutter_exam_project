@@ -14,6 +14,7 @@ class ProfileBloc extends Bloc<BaseEvent, ProfileState> {
     on<ServerLogsInUser>(_onServerLogsInUser);
     on<ServerLogsoutUser>(_onServerLogsoutUser);
     on<ServerSendsAccountData>(_onServerSendsAccountData);
+    on<ServerEvent>((event, emit) => print(event.runtimeType),);
     on<ClientEvent>(_onClientEvent);
 
     _channelSubscription = wsChannel.stream

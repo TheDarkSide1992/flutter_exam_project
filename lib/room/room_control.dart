@@ -50,7 +50,7 @@ class _RoomControlState extends State<RoomControl> {
 
   void _ChangeState() async {
     this.isOn = !this.isOn;
-    context.read<DeviceBloc>().OpenCloseDevice(this.device.roomId!, !this.isOn);
+    context.read<DeviceBloc>().OpenCloseDevice(this.device.roomId!, this.isOn);
     //TODO make call
   }
 
@@ -65,7 +65,7 @@ class _RoomControlState extends State<RoomControl> {
       if (state is DataError || state is DeviceSigOut) {
         context.showErrorSnackBar(message: "Could not get device data");
       }
-      if(state is DeviceWindowStatus){
+      if(state is DetailedRoom){
         this.isOn = state.open!;
       }
     },

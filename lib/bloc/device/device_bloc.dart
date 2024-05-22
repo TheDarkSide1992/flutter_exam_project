@@ -14,6 +14,7 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   DeviceBloc(this.wsChannel) : super(DeviceInitial()) {
     on<ServerReturnsBasicRoomStatus>(_onServerReturnsBasicRoomStatus);
     on<ServerReturnsNewMotorStatusForAllMotorsInRoom>(_onServerReturnsNewMotorStatusForAllMotorsInRoom);
+    on<ServerReturnsDetailedRoomToUser>(_onServerReturnsDetailedRoomToUser);
     on<ClientEvent>(_onClientEvent); 
 
     _channelSubscription =
@@ -53,6 +54,9 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   Future<void> RemoweDeviceList() async {
     emit(DeviceSigOut());
   }
+  Future<void> getDetailedRoom(int roomId) async {
+    add(ClientWantsDetailedRoomDto(eventType: ClientWantsDetailedRoomDto.name, roomId: roomId));
+  }
 
   Future<void> OpenCloseDevice(int roomId, bool openClose) async{
     add(ClientWantsToOpenOrCloseAllWindowsInRoomDto(eventType: ClientWantsToOpenOrCloseAllWindowsInRoomDto.name, id: roomId, open: openClose));
@@ -67,12 +71,19 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
 
   FutureOr<void> _onServerReturnsNewMotorStatusForAllMotorsInRoom(ServerReturnsNewMotorStatusForAllMotorsInRoom event, Emitter<DeviceState> emit) {
     late bool isOpen;
-    print(event.message);
     if(event.message == "All windows are enabled") {
       isOpen = true;
     } else{
       isOpen = false;
     }
     emit(DeviceWindowStatus(open: isOpen, motors: event.motors));
+  }
+
+  FutureOr<void> _onServerReturnsDetailedRoomToUser(ServerReturnsDetailedRoomToUser event, Emitter<DeviceState> emit) {
+    bool open = true;
+
+    event.room.motors?.forEach((element) {if(element.isOpen == false){ open = false;}} );
+
+    emit(DetailedRoom(roomId: event.room.roomId, name: event.room.name, sensors: event.room.sensors, motors: event.room.motors, open: open));
   }
 }
