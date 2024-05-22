@@ -32,7 +32,6 @@ class RoomPage extends StatelessWidget {
       ),
       body: BlocConsumer<DeviceBloc, DeviceState>(
         listener: (context, state) {
-          print("Entering BlocConsumer");
           if (state is DataError || state is DeviceSigOut) {
             context.showErrorSnackBar(message: "Could not get device data");
           } else if (state is DetailedRoom) {
