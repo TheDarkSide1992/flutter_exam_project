@@ -7,14 +7,13 @@ import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
 import 'package:flutter_exam_project/room/room_temperature.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
-import 'package:flutter_exam_project/utils/data_source.dart';
 
-import '../app_drawer.dart';
 import '../bloc/device/device_bloc.dart';
 import '../bloc/device/device_state.dart';
 
 class RoomPage extends StatelessWidget {
-  const RoomPage(this.device, {
+  const RoomPage(
+    this.device, {
     super.key,
   });
 
@@ -24,10 +23,7 @@ class RoomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(device.roomName!),
       ),
       body: BlocConsumer<DeviceBloc, DeviceState>(
@@ -37,6 +33,7 @@ class RoomPage extends StatelessWidget {
           } else if (state is DetailedRoom) {
             this.device.roomId = state.roomId;
             this.device.roomName = state.name;
+            print("objectobjectobjectobject");
           }
         },
         builder: (context, state) => RoomDataView(device),
@@ -88,46 +85,46 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
-  void _getDetailedRoom(){
+  void _getDetailedRoom() {
     context.read<DeviceBloc>().getDetailedRoom(device.roomId!);
   }
 
   @override
   Widget build(BuildContext context) {
     _getDetailedRoom();
-    return Scaffold(
+      return Scaffold(
       body: Center(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            PageView(
-              controller: _pageViewController,
-              onPageChanged: _handlePageViewChanged,
-              children: [
-                Center(
-                  child: RoomTemperature(),
-                ),
-                Center(
-                  child: RoomHumidity(),
-                ),
-                Center(
-                  child: RoomAirQuality(),
-                ),
-                Center(
-                  //TODO Insert control page
-                  child: RoomControl(this.device),
-                ),
-              ],
-            ),
-            PageIndicator(
-              tabController: _tabController,
-              currentPageIndex: _currentPageIndex,
-              onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-              isOnDesktopAndWeb: _isOnDesktopAndWeb,
-            ),
-          ],
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: <Widget>[
+              PageView(
+                controller: _pageViewController,
+                onPageChanged: _handlePageViewChanged,
+                children: [
+                  Center(
+                    child: RoomTemperature(),
+                  ),
+                  Center(
+                    child: RoomHumidity(),
+                  ),
+                  Center(
+                    child: RoomAirQuality(),
+                  ),
+                  Center(
+                    //TODO Insert control page
+                    child: RoomControl(this.device),
+                  ),
+                ],
+              ),
+              PageIndicator(
+                tabController: _tabController,
+                currentPageIndex: _currentPageIndex,
+                onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+                isOnDesktopAndWeb: _isOnDesktopAndWeb,
+              ),
+            ],
+          ),
         ),
-      ),
     );
   }
 
@@ -194,9 +191,7 @@ class PageIndicator extends StatelessWidget {
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }
-    final ColorScheme colorScheme = Theme
-        .of(context)
-        .colorScheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

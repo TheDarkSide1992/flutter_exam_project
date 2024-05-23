@@ -15,7 +15,7 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
     on<ServerReturnsBasicRoomStatus>(_onServerReturnsBasicRoomStatus);
     on<ServerReturnsNewMotorStatusForAllMotorsInRoom>(_onServerReturnsNewMotorStatusForAllMotorsInRoom);
     on<ServerReturnsDetailedRoomToUser>(_onServerReturnsDetailedRoomToUser);
-    on<ClientEvent>(_onClientEvent); 
+    on<ClientEvent>(_onClientEvent);
 
     _channelSubscription =
         wsChannel.stream.map((event) => jsonDecode(event)).map((event) {
@@ -86,4 +86,5 @@ class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
 
     emit(DetailedRoom(roomId: event.room.roomId, name: event.room.name, sensors: event.room.sensors, motors: event.room.motors, open: open));
   }
+
 }

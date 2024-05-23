@@ -6,6 +6,7 @@ import 'package:flutter_exam_project/log_in/log_in_page.dart';
 import 'package:flutter_exam_project/utils/broadcast_ws_channel.dart';
 
 import 'app_drawer.dart';
+import 'bloc/live_data/live_data_bloc.dart';
 import 'bloc_observer.dart';
 
 void main() {
@@ -22,6 +23,9 @@ void main() {
         ),
         BlocProvider<DeviceBloc>(
           create: (BuildContext context) => DeviceBloc(ws)
+        ),
+        BlocProvider<LiveDataBloc>(
+          create: (BuildContext context) => LiveDataBloc(ws)
         ),
       ],
       child: const MyApp(),

@@ -10,7 +10,7 @@ class SensorModel{
     required this.Temperature,
     required this.Humidity,
     required this.CO2,
-    required this.timestamp,
+    this.timestamp,
   });
 
   SensorModel.fromJson(Map<String, dynamic> json){
@@ -19,7 +19,7 @@ class SensorModel{
     Temperature = (json["Temperature"] as num).toDouble();
     Humidity = (json["Humidity"] as num).toDouble();
     CO2 = (json["CO2"] as num).toDouble();
-    timestamp = (json["timestamp"] as DateTime).toLocal();
+    timestamp = json["timestamp"] != null ? (json["timestamp"] as DateTime).toLocal() : null;
   }
 
   Map<String, dynamic> toJson() {

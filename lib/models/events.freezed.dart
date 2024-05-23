@@ -2366,3 +2366,172 @@ abstract class _ServerReturnsDetailedRoomToUser
           _$ServerReturnsDetailedRoomToUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
+
+ServerReturnsNewestSensorData _$ServerReturnsNewestSensorDataFromJson(
+    Map<String, dynamic> json) {
+  return _ServerReturnsNewestSensorData.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServerReturnsNewestSensorData {
+  String get eventType => throw _privateConstructorUsedError;
+  SensorModel get data => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ServerReturnsNewestSensorDataCopyWith<ServerReturnsNewestSensorData>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServerReturnsNewestSensorDataCopyWith<$Res> {
+  factory $ServerReturnsNewestSensorDataCopyWith(
+          ServerReturnsNewestSensorData value,
+          $Res Function(ServerReturnsNewestSensorData) then) =
+      _$ServerReturnsNewestSensorDataCopyWithImpl<$Res,
+          ServerReturnsNewestSensorData>;
+  @useResult
+  $Res call({String eventType, SensorModel data});
+}
+
+/// @nodoc
+class _$ServerReturnsNewestSensorDataCopyWithImpl<$Res,
+        $Val extends ServerReturnsNewestSensorData>
+    implements $ServerReturnsNewestSensorDataCopyWith<$Res> {
+  _$ServerReturnsNewestSensorDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? data = null,
+  }) {
+    return _then(_value.copyWith(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SensorModel,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ServerReturnsNewestSensorDataImplCopyWith<$Res>
+    implements $ServerReturnsNewestSensorDataCopyWith<$Res> {
+  factory _$$ServerReturnsNewestSensorDataImplCopyWith(
+          _$ServerReturnsNewestSensorDataImpl value,
+          $Res Function(_$ServerReturnsNewestSensorDataImpl) then) =
+      __$$ServerReturnsNewestSensorDataImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String eventType, SensorModel data});
+}
+
+/// @nodoc
+class __$$ServerReturnsNewestSensorDataImplCopyWithImpl<$Res>
+    extends _$ServerReturnsNewestSensorDataCopyWithImpl<$Res,
+        _$ServerReturnsNewestSensorDataImpl>
+    implements _$$ServerReturnsNewestSensorDataImplCopyWith<$Res> {
+  __$$ServerReturnsNewestSensorDataImplCopyWithImpl(
+      _$ServerReturnsNewestSensorDataImpl _value,
+      $Res Function(_$ServerReturnsNewestSensorDataImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? eventType = null,
+    Object? data = null,
+  }) {
+    return _then(_$ServerReturnsNewestSensorDataImpl(
+      eventType: null == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SensorModel,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServerReturnsNewestSensorDataImpl
+    implements _ServerReturnsNewestSensorData {
+  const _$ServerReturnsNewestSensorDataImpl(
+      {required this.eventType, required this.data});
+
+  factory _$ServerReturnsNewestSensorDataImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ServerReturnsNewestSensorDataImplFromJson(json);
+
+  @override
+  final String eventType;
+  @override
+  final SensorModel data;
+
+  @override
+  String toString() {
+    return 'ServerReturnsNewestSensorData(eventType: $eventType, data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerReturnsNewestSensorDataImpl &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, eventType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerReturnsNewestSensorDataImplCopyWith<
+          _$ServerReturnsNewestSensorDataImpl>
+      get copyWith => __$$ServerReturnsNewestSensorDataImplCopyWithImpl<
+          _$ServerReturnsNewestSensorDataImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServerReturnsNewestSensorDataImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServerReturnsNewestSensorData
+    implements ServerReturnsNewestSensorData {
+  const factory _ServerReturnsNewestSensorData(
+      {required final String eventType,
+      required final SensorModel data}) = _$ServerReturnsNewestSensorDataImpl;
+
+  factory _ServerReturnsNewestSensorData.fromJson(Map<String, dynamic> json) =
+      _$ServerReturnsNewestSensorDataImpl.fromJson;
+
+  @override
+  String get eventType;
+  @override
+  SensorModel get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$ServerReturnsNewestSensorDataImplCopyWith<
+          _$ServerReturnsNewestSensorDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

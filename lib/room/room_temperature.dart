@@ -2,17 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/app_drawer.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
 class RoomTemperature extends StatelessWidget {
   RoomTemperature({super.key});
 
-  var temp = "N/A";
+  double temp = 0.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: BlocConsumer<LiveDataBloc, LiveDataState>(
+        listener: (context, state) {
+      if (state is LiveDataInitial || state is DataDiscarded) {
+        context.showErrorSnackBar(message: "Could not get data");
+      } else if (state is LiveDataLoadedState) {
+        temp = state.data!.Temperature!;
+      }
+    },
+    builder: (context, state) => Center(
         child: Container(
           alignment: Alignment.topCenter,
           child: Column(
@@ -55,6 +67,7 @@ class RoomTemperature extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
