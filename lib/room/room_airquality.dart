@@ -23,7 +23,7 @@ class RoomAirQuality extends StatelessWidget {
             children: [
               SizedBox(height: 15,),
               Text(
-                'Air Quality ${aq}',
+                'Air Quality ${aq} ppm',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,

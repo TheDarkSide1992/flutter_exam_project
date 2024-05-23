@@ -23,7 +23,7 @@ class RoomTemperature extends StatelessWidget {
             children: [
               SizedBox(height: 15,),
               Text(
-                'Current temperature ${temp}',
+                'Current temperature ${temp} \u00B0C',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,

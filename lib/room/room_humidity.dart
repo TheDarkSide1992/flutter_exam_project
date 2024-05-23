@@ -24,7 +24,7 @@ class RoomHumidity extends StatelessWidget {
             children: [
               SizedBox(height: 15),
               Text(
-                'Current humidity ${hum}',
+                'Current humidity ${hum} %',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,
