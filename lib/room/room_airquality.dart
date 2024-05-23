@@ -9,22 +9,14 @@ import '../bloc/live_data/live_data_bloc.dart';
 import '../bloc/live_data/live_data_state.dart';
 
 class RoomAirQuality extends StatelessWidget {
-  RoomAirQuality({super.key});
+  RoomAirQuality(this.aq, {super.key});
 
-  double aq = 0.0;
+  final double aq;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<LiveDataBloc, LiveDataState>(
-        listener: (context, state) {
-      if (state is LiveDataInitial || state is DataDiscarded) {
-        context.showErrorSnackBar(message: "Could not get data");
-      } else if (state is LiveDataLoadedState) {
-        aq = state.data!.CO2!;
-      }
-    },
-    builder: (context, state) => Center(
+      body: Center(
         child: Container(
           alignment: Alignment.topCenter,
           child: Column(
@@ -67,7 +59,6 @@ class RoomAirQuality extends StatelessWidget {
             ],
           ),
         ),
-      ),
       ),
     );
   }

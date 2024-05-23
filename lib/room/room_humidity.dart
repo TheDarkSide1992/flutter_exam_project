@@ -9,23 +9,15 @@ import '../bloc/live_data/live_data_bloc.dart';
 import '../bloc/live_data/live_data_state.dart';
 
 class RoomHumidity extends StatelessWidget {
-  RoomHumidity({super.key});
+  RoomHumidity(this.hum, {super.key});
 
-  late double hum = 0.0;
+  final double hum;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      body: BlocConsumer<LiveDataBloc, LiveDataState>(
-        listener: (context, state) {
-      if (state is LiveDataInitial || state is DataDiscarded) {
-        context.showErrorSnackBar(message: "Could not get data");
-      } else if (state is LiveDataLoadedState) {
-        print("Humidity getting");
-        hum = state.data!.Humidity!;
-      }
-    },
-    builder: (context, state) => Center(
+      body: Center(
         child: Container(
           alignment: Alignment.topCenter,
           child: Column(
@@ -68,7 +60,6 @@ class RoomHumidity extends StatelessWidget {
             ],
           ),
         ),
-      ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
+import 'package:flutter_exam_project/models/SensorModel.dart';
 import 'package:flutter_exam_project/room/room_airquality.dart';
 import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
@@ -10,6 +11,8 @@ import 'package:flutter_exam_project/utils/constants.dart';
 
 import '../bloc/device/device_bloc.dart';
 import '../bloc/device/device_state.dart';
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
 class RoomPage extends StatelessWidget {
   const RoomPage(
@@ -66,6 +69,8 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   late TabController _tabController;
   int _currentPageIndex = 0;
   late BasicRoomStatus device;
+  static late SensorModel data = new SensorModel(sensorId: "-1", Temperature: 0.0, Humidity: 0.0, CO2: 0.0);
+
 
   _RoomDataView(device) {
     this.device = device;
@@ -93,7 +98,15 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     _getDetailedRoom();
       return Scaffold(
-      body: Center(
+      body: BlocConsumer<LiveDataBloc, LiveDataState>(
+        listener: (context, state) {
+      if (state is LiveDataInitial || state is DataDiscarded) {
+        context.showErrorSnackBar(message: "Could not get data");
+      } else if (state is LiveDataLoadedState) {
+        data = state.data!;
+      }
+    },
+    builder: (context, state) => Center(
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: <Widget>[
@@ -102,16 +115,15 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
                 onPageChanged: _handlePageViewChanged,
                 children: [
                   Center(
-                    child: RoomTemperature(),
+                    child: RoomTemperature(data.Temperature!),
                   ),
                   Center(
-                    child: RoomHumidity(),
+                    child: RoomHumidity(data.Humidity!),
                   ),
                   Center(
-                    child: RoomAirQuality(),
+                    child: RoomAirQuality(data.CO2!),
                   ),
                   Center(
-                    //TODO Insert control page
                     child: RoomControl(this.device),
                   ),
                 ],
@@ -125,6 +137,7 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
             ],
           ),
         ),
+      ),
     );
   }
 
