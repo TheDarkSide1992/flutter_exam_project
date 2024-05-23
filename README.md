@@ -6,10 +6,10 @@ The purpose of this project is to make a app that can work as mobile controller 
 This project was made by Jens P. and Andreas H.
 
 ## Getting Started
-Get dependencies by running the * pub get * command in bash console, or follow android studio recommendation.
+Get dependencies by running the *pub get* command in bash console, or follow android studio recommendation.
 Run the Api connection on localhost, or if different port change address in main
 
-Socket API and angular web frontend can be found at * https://github.com/TheDarkSide1992/FreshRoomsExamProject *
+Socket API and angular web frontend can be found at *https://github.com/TheDarkSide1992/FreshRoomsExamProject*
 
 ## Flutter start Guide
 This project is a starting point for a Flutter application.
