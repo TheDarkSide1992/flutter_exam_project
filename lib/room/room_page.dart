@@ -69,7 +69,7 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   late TabController _tabController;
   int _currentPageIndex = 0;
   late BasicRoomStatus device;
-  static late SensorModel data = new SensorModel(sensorId: "-1", Temperature: 0.0, Humidity: 0.0, CO2: 0.0);
+  static late SensorModel data = new SensorModel(sensorId: "-1", temperature: 0.0, humidity: 0.0, co2: 0.0);
 
 
   _RoomDataView(device) {
@@ -115,13 +115,13 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
                 onPageChanged: _handlePageViewChanged,
                 children: [
                   Center(
-                    child: RoomTemperature(data.Temperature!),
+                    child: RoomTemperature(data.temperature!),
                   ),
                   Center(
-                    child: RoomHumidity(data.Humidity!),
+                    child: RoomHumidity(data.humidity!),
                   ),
                   Center(
-                    child: RoomAirQuality(data.CO2!),
+                    child: RoomAirQuality(data.co2!),
                   ),
                   Center(
                     child: RoomControl(this.device),
