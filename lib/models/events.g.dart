@@ -209,3 +209,17 @@ Map<String, dynamic> _$$ServerReturnsDetailedRoomToUserImplToJson(
       'eventType': instance.eventType,
       'room': instance.room,
     };
+
+_$ServerReturnsNewestSensorDataImpl
+    _$$ServerReturnsNewestSensorDataImplFromJson(Map<String, dynamic> json) =>
+        _$ServerReturnsNewestSensorDataImpl(
+          eventType: json['eventType'] as String,
+          data: SensorModel.fromJson(json['data'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$$ServerReturnsNewestSensorDataImplToJson(
+        _$ServerReturnsNewestSensorDataImpl instance) =>
+    <String, dynamic>{
+      'eventType': instance.eventType,
+      'data': instance.data,
+    };

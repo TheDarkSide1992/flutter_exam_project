@@ -20,7 +20,7 @@ class RoomControl extends StatefulWidget {
 class _RoomControlState extends State<RoomControl> {
   late String deviceStatus;
   late IconData currentPowerIcon;
-  late bool isOn;
+  static late bool isOn;
   late BasicRoomStatus device;
 
 
@@ -49,9 +49,14 @@ class _RoomControlState extends State<RoomControl> {
   }
 
   void _ChangeState() async {
-    this.isOn = !this.isOn;
-    context.read<DeviceBloc>().OpenCloseDevice(this.device.roomId!, this.isOn);
-    //TODO make call
+    isOn = !isOn;
+    context.read<DeviceBloc>().OpenCloseDevice(this.device.roomId!, isOn);
+
+    if(isOn){
+      this.device.basicWindowStatus = "Open";
+    } else {
+      this.device.basicWindowStatus = "Close";
+    }
   }
 
   @override
@@ -66,7 +71,7 @@ class _RoomControlState extends State<RoomControl> {
         context.showErrorSnackBar(message: "Could not get device data");
       }
       if(state is DetailedRoom){
-        this.isOn = state.open!;
+        isOn = state.open!;
       }
     },
 

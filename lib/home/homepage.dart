@@ -41,11 +41,12 @@ class _RoomOverviewAppState extends State<RoomOverviewApp> {
               context.showErrorSnackBar(message: "An error occurred");
             }
           }, builder: (context, state) {
-            if (state is! DevicDataLoaded) {
-              return const CircularProgressIndicator();
-            }
             if (state is DataError) {
               return Text("Something bad");
+            }
+            else if (state is! DevicDataLoaded) {
+              context.read<DeviceBloc>().getDeviceData();
+              return const CircularProgressIndicator();
             }
             final devices = state.simpleDataLoadList;
             builder:

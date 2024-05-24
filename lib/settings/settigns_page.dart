@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_exam_project/bloc/device/device_bloc.dart';
+import 'package:flutter_exam_project/bloc/live_data/live_data_bloc.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -14,11 +16,12 @@ class SettingPage extends StatelessWidget {
 
   Future<void> _signOut(BuildContext context) async {
     context.read<ProfileBloc>().signOut();
+    context.read<DeviceBloc>().RemoweDeviceList();
+    context.read<LiveDataBloc>().DiscardData();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

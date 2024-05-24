@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/app_drawer.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class RoomHumidity extends StatelessWidget {
-  RoomHumidity({super.key});
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
-  var hum = "N/A";
+class RoomHumidity extends StatelessWidget {
+  RoomHumidity(this.hum, {super.key});
+
+  final double hum;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -19,7 +24,7 @@ class RoomHumidity extends StatelessWidget {
             children: [
               SizedBox(height: 15),
               Text(
-                'Current humidity ${hum}',
+                'Current humidity ${hum} %',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,

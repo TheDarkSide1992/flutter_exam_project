@@ -2,19 +2,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
+import 'package:flutter_exam_project/models/SensorModel.dart';
 import 'package:flutter_exam_project/room/room_airquality.dart';
 import 'package:flutter_exam_project/room/room_control.dart';
 import 'package:flutter_exam_project/room/room_humidity.dart';
 import 'package:flutter_exam_project/room/room_temperature.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
-import 'package:flutter_exam_project/utils/data_source.dart';
 
-import '../app_drawer.dart';
 import '../bloc/device/device_bloc.dart';
 import '../bloc/device/device_state.dart';
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
 class RoomPage extends StatelessWidget {
-  const RoomPage(this.device, {
+  const RoomPage(
+    this.device, {
     super.key,
   });
 
@@ -24,10 +26,7 @@ class RoomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(device.roomName!),
       ),
       body: BlocConsumer<DeviceBloc, DeviceState>(
@@ -69,6 +68,8 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
   late TabController _tabController;
   int _currentPageIndex = 0;
   late BasicRoomStatus device;
+  static late SensorModel data = new SensorModel(sensorId: "-1", temperature: 0.0, humidity: 0.0, co2: 0.0);
+
 
   _RoomDataView(device) {
     this.device = device;
@@ -88,44 +89,52 @@ class _RoomDataView extends State<RoomDataView> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
-  void _getDetailedRoom(){
+  void _getDetailedRoom() {
     context.read<DeviceBloc>().getDetailedRoom(device.roomId!);
   }
 
   @override
   Widget build(BuildContext context) {
     _getDetailedRoom();
-    return Scaffold(
-      body: Center(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            PageView(
-              controller: _pageViewController,
-              onPageChanged: _handlePageViewChanged,
-              children: [
-                Center(
-                  child: RoomTemperature(),
-                ),
-                Center(
-                  child: RoomHumidity(),
-                ),
-                Center(
-                  child: RoomAirQuality(),
-                ),
-                Center(
-                  //TODO Insert control page
-                  child: RoomControl(this.device),
-                ),
-              ],
-            ),
-            PageIndicator(
-              tabController: _tabController,
-              currentPageIndex: _currentPageIndex,
-              onUpdateCurrentPageIndex: _updateCurrentPageIndex,
-              isOnDesktopAndWeb: _isOnDesktopAndWeb,
-            ),
-          ],
+      return Scaffold(
+      body: BlocConsumer<LiveDataBloc, LiveDataState>(
+        listener: (context, state) {
+      if (state is LiveDataInitial || state is DataDiscarded) {
+        context.showErrorSnackBar(message: "Could not get data");
+      } else if (state is LiveDataLoadedState) {
+        data = state.data!;
+      }
+    },
+    builder: (context, state) => Center(
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: <Widget>[
+              PageView(
+                controller: _pageViewController,
+                onPageChanged: _handlePageViewChanged,
+                children: [
+                  Center(
+                    child: RoomTemperature(data.temperature!),
+                  ),
+                  Center(
+                    child: RoomHumidity(data.humidity!),
+                  ),
+                  Center(
+                    child: RoomAirQuality(data.co2!),
+                  ),
+                  Center(
+                    child: RoomControl(this.device),
+                  ),
+                ],
+              ),
+              PageIndicator(
+                tabController: _tabController,
+                currentPageIndex: _currentPageIndex,
+                onUpdateCurrentPageIndex: _updateCurrentPageIndex,
+                isOnDesktopAndWeb: _isOnDesktopAndWeb,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -194,9 +203,7 @@ class PageIndicator extends StatelessWidget {
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }
-    final ColorScheme colorScheme = Theme
-        .of(context)
-        .colorScheme;
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

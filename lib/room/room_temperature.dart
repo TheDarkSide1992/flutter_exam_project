@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/app_drawer.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class RoomTemperature extends StatelessWidget {
-  RoomTemperature({super.key});
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
-  var temp = "N/A";
+class RoomTemperature extends StatelessWidget {
+  RoomTemperature(this.temp, {super.key});
+
+  final double temp;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class RoomTemperature extends StatelessWidget {
             children: [
               SizedBox(height: 15,),
               Text(
-                'Current temperature ${temp}',
+                'Current temperature ${temp} \u00B0C',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,

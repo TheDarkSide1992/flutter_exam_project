@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_exam_project/app_drawer.dart';
+import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class RoomAirQuality extends StatelessWidget {
-  RoomAirQuality({super.key});
+import '../bloc/live_data/live_data_bloc.dart';
+import '../bloc/live_data/live_data_state.dart';
 
-  var aq = "N/A";
+class RoomAirQuality extends StatelessWidget {
+  RoomAirQuality(this.aq, {super.key});
+
+  final double aq;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class RoomAirQuality extends StatelessWidget {
             children: [
               SizedBox(height: 15,),
               Text(
-                'Air Quality ${aq}',
+                'Air Quality ${aq} ppm',
                 style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 18,
