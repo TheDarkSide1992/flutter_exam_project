@@ -36,7 +36,6 @@ class RoomPage extends StatelessWidget {
           } else if (state is DetailedRoom) {
             this.device.roomId = state.roomId;
             this.device.roomName = state.name;
-            print("objectobjectobjectobject");
           }
         },
         builder: (context, state) => RoomDataView(device),
