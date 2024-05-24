@@ -18,12 +18,15 @@ class RoomOverviewApp extends StatefulWidget {
 class _RoomOverviewAppState extends State<RoomOverviewApp> {
   @override
   initState() {
-    super.initState();
+    super.initState();}
+
+  void getData() {
     context.read<DeviceBloc>().getDeviceData();
   }
 
   @override
   Widget build(BuildContext context) {
+    getData();
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       theme: Theme.of(context),
@@ -35,8 +38,8 @@ class _RoomOverviewAppState extends State<RoomOverviewApp> {
             title: Text('HOME'),
           ),
           drawer: const AppDrawer(),
-          body: BlocConsumer<DeviceBloc, DeviceState>(
-              listener: (context, state) {
+          body:
+              BlocConsumer<DeviceBloc, DeviceState>(listener: (context, state) {
             if (state is DeviceSigOut || state is DataError) {
               context.showErrorSnackBar(message: "An error occurred");
             }
