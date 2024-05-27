@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 
-import '../account/account_page.dart';
 import '../room/room_page.dart';
 
 class DeviceCard extends StatelessWidget {

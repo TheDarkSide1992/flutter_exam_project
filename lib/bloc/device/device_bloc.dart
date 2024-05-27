@@ -8,7 +8,6 @@ import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 
 import '../../models/events.dart';
 import '../../utils/broadcast_ws_channel.dart';
-import '../../utils/data_source.dart';
 
 class DeviceBloc extends Bloc<BaseEvent, DeviceState> {
   DeviceBloc(this.wsChannel) : super(DeviceInitial()) {
