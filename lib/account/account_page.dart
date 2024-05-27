@@ -13,9 +13,7 @@ class AccountPage extends StatelessWidget {
   var realname = "N/A";
   var mail = "N/A";
   var city = "N/A";
-  var numberOfDevices = 0;
 
-  //TODO implement api call refrence to get data. or pull from account state
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +72,6 @@ class AccountPage extends StatelessWidget {
                                         .colorScheme
                                         .inversePrimary)),
                             Text('Mail : $mail',
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .inversePrimary)),
-                            Text('Current number of devices : $numberOfDevices',
                                 style: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme

@@ -6,7 +6,6 @@ import 'package:flutter_exam_project/models/events.dart';
 import 'package:flutter_exam_project/models/profile_model.dart';
 import 'package:flutter_exam_project/utils/broadcast_ws_channel.dart';
 
-import '../../utils/data_source.dart';
 import 'profile_state.dart';
 
 class ProfileBloc extends Bloc<BaseEvent, ProfileState> {

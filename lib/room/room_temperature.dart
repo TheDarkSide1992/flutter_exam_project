@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_exam_project/app_drawer.dart';
-import 'package:flutter_exam_project/utils/constants.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-import '../bloc/live_data/live_data_bloc.dart';
-import '../bloc/live_data/live_data_state.dart';
 
 class RoomTemperature extends StatelessWidget {
   RoomTemperature(this.temp, {super.key});

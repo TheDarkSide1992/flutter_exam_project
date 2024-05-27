@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_exam_project/models/BasicRoomStatus.dart';
 import 'package:flutter_exam_project/models/DetailedRoomModel.dart';
 import 'package:flutter_exam_project/models/MotorModel.dart';

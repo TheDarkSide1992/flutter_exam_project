@@ -6,7 +6,6 @@ import 'package:flutter_exam_project/bloc/device/device_bloc.dart';
 import 'package:flutter_exam_project/bloc/device/device_state.dart';
 import 'package:flutter_exam_project/utils/constants.dart';
 
-import '../app_drawer.dart';
 import '../models/BasicRoomStatus.dart';
 
 class RoomControl extends StatefulWidget {
