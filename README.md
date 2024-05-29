@@ -11,6 +11,8 @@ Run the Api connection on localhost, or if different port change address in main
 
 Socket API and angular web frontend can be found at *https://github.com/TheDarkSide1992/FreshRoomsExamProject*
 
+VIdeo Presentaion´s - https://drive.google.com/drive/folders/1ZoXUsgAByRx0BKiN57BQ4zlUzZhw6ahO?usp=sharing
+
 ## Flutter start Guide
 This project is a starting point for a Flutter application.
 
